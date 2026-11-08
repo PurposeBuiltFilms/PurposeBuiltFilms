@@ -207,12 +207,8 @@ a .btn-cta{
     backdrop-filter: var(--card-blur);
     line-height: normal;
     display:block;
-    transition: transform 0.5s ease-in-out;
 }
-.card:hover{
-    transform: translateY(-5px);
-    transition: transform 0.3s ease-in-out;
-}
+/* No hover lift: cards aren't links, so moving on hover falsely suggests they're clickable */
 .nav-bar{
     height:100vh !important;
     top:0;
