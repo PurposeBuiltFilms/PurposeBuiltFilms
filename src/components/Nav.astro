@@ -7,7 +7,7 @@ export interface NavLink {
 interface Props {
     links?: NavLink[];
     /** Extra logo shown beside the PBF logo (used on the Biotapes page) */
-    secondaryLogo?: { src: string; alt: string };
+    secondaryLogo?: { src: string; alt: string; width: number; height: number };
 }
 
 const defaultLinks: NavLink[] = [
@@ -27,8 +27,8 @@ const isLong = links.length > 5;
 
     <!-- NAV LOGO -->
     <div class:list={['nav-logo w-100', { 'd-flex flex-row': secondaryLogo }]}>
-        <img class:list={[secondaryLogo ? 'w-50' : 'w-100']} src="/assets/images/purposebuiltfilms-logo.svg" alt="Purpose Built Films">
-        {secondaryLogo && <img class="w-25" src={secondaryLogo.src} alt={secondaryLogo.alt}>}
+        <img class:list={[secondaryLogo ? 'w-50' : 'w-100']} src="/assets/images/purposebuiltfilms-logo.svg" width="933" height="503" alt="Purpose Built Films">
+        {secondaryLogo && <img class="w-25" src={secondaryLogo.src} width={secondaryLogo.width} height={secondaryLogo.height} alt={secondaryLogo.alt}>}
     </div>
 
     <!-- NAV LINKS -->

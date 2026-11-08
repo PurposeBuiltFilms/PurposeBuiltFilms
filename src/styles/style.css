@@ -236,6 +236,8 @@ a .btn-cta{
 .nav-bar.scrolled .nav-logo{
     width:10vw !important;
 }
+/* Logos carry width/height attributes (to reserve space); let CSS width drive the size */
+.nav-logo img{height: auto;}
 .nav-links{
     flex-direction: column;
     list-style:none;

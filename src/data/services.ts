@@ -1,6 +1,9 @@
 export interface Service {
     title: string;
     image: string;
+    /** Intrinsic pixel size, so the browser reserves space before the image loads */
+    width: number;
+    height: number;
     alt: string;
     intro: string;
     /** Paragraphs revealed by "more info..." */
@@ -11,6 +14,8 @@ export const services: Service[] = [
     {
         title: "Short Films",
         image: "/assets/images/service-short-film.webp",
+        width: 500,
+        height: 376,
         alt: "Rewilding and nature short film production for conservation charities in Bristol and the South West",
         intro: "At Purpose Built Films, our short films are designed to do one thing beautifully: tell a powerful story in a small, intentional space. Whether you are restoring a wetland, reintroducing species, or building a circular product, a short film lets people see the impact, not just read about it. We capture real people, real places, and real change, with an emphasis on working lightly on the land and showcasing sustainable practice on screen.",
         details: [
@@ -22,6 +27,8 @@ export const services: Service[] = [
     {
         title: "CEO Branding",
         image: "/assets/images/service-ceo-branding.webp",
+        width: 500,
+        height: 375,
         alt: "CEO and founder branding films for rewilding organisations and conservation charities, Bristol",
         intro: "Purpose-led organisations are powered by people, and often the clearest story sits with the person at the top. Our CEO Branding films give your leadership a confident, human voice on camera. We create short, high-quality pieces that introduce who you are, what you believe, and why this work matters now. It is not corporate gloss; it is clear, grounded storytelling that helps partners, funders, and audiences trust you.",
         details: [
@@ -33,6 +40,8 @@ export const services: Service[] = [
     {
         title: "Monthly Content",
         image: "/assets/images/service-monthly-content.webp",
+        width: 500,
+        height: 317,
         alt: "Monthly nature and rewilding video content packages for charities and land managers, South West England",
         intro: "Some stories do not happen in one day on set. Restoration projects, community programmes, new product cycles – they all evolve over time. Our Monthly Content Packages are designed to keep telling that story as it unfolds. Instead of commissioning a single big film once a year, you get a steady stream of short, on-brand content you can share with stakeholders, funders, and your online audience every month.",
         details: [

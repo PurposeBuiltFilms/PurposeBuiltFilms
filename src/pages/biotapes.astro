@@ -24,7 +24,7 @@ const navLinks = [
     { href: '#Contact', label: 'Contact' },
 ];
 
-const logo = { src: '/assets/images/biotapes-logo.svg', alt: 'Biotapes Ecological Baseline Verification' };
+const logo = { src: '/assets/images/biotapes-logo.svg', width: 506, height: 588, alt: 'Biotapes Ecological Baseline Verification' };
 
 // Download buttons only render once a file URL is set (they previously linked nowhere)
 const briefingUrl = '';
@@ -44,7 +44,7 @@ const contactUrl = '/contact/';
         <!-- HERO SECTION -->
         <section id="biotape-hero" class="text-center vh-100 d-flex justify-content-center align-items-center bg-primary pt-0 mt-0">
             <div class="text-center">
-                <img class="w-25 my-3" src={logo.src} alt={logo.alt}>
+                <img class="w-25 h-auto my-3" src={logo.src} width={logo.width} height={logo.height} alt={logo.alt}>
                 <h1>Biotapes™</h1>
                 <h2>The Visual Evidence Standard for Nature Markets</h2>
                 <h4 class="w-75 mx-a">Human-visible, hash-verified, timestamped baselines that bring trust to ecological reporting, BNG compliance and nature-finance projects.</h4>
@@ -57,7 +57,7 @@ const contactUrl = '/contact/';
         <BiotapesSection
             id="What-is-Biotapes"
             heading="WHAT IS BIOTAPES"
-            image={{ src: '/assets/images/biotapes-what-is-biotapes.webp', alt: 'Biotapes verified ecological baseline recording for BNG and nature-finance compliance, South West England' }}
+            image={{ src: '/assets/images/biotapes-what-is-biotapes.webp', width: 300, height: 300, alt: 'Biotapes verified ecological baseline recording for BNG and nature-finance compliance, South West England' }}
         >
             <p>Biotapes™ is a verified visual baseline protocol used to establish ground-truth evidence for ecological and nature-finance projects.</p>
             <p class="w-md-50 text-start mx-a mb-1">It combines:</p>
@@ -75,7 +75,7 @@ const contactUrl = '/contact/';
         <BiotapesSection
             id="Why-it-Matters"
             heading="WHY BIOTAPES MATTERS"
-            image={{ src: '/assets/images/biotapes-why-biotapes-matters.webp', alt: 'Why Biotapes matters — transparent, tamper-proof ecological evidence for rewilding and habitat restoration projects' }}
+            image={{ src: '/assets/images/biotapes-why-biotapes-matters.webp', width: 350, height: 350, alt: 'Why Biotapes matters — transparent, tamper-proof ecological evidence for rewilding and habitat restoration projects' }}
         >
             <p>Nature markets depend on trust - but baselines are often invisible, inconsistent, or unverifiable.</p>
             <p class="w-md-50 text-start mx-a mb-1">Biotapes solves this by providing:</p>
@@ -98,7 +98,7 @@ const contactUrl = '/contact/';
         <BiotapesSection
             id="Who-its-For"
             heading="WHO BIOTAPES IS FOR"
-            image={{ src: '/assets/images/biotapes-who-is-for.webp', alt: 'Who Biotapes is for — ecological consultants, habitat banks, local authorities and rewilding projects in the UK' }}
+            image={{ src: '/assets/images/biotapes-who-is-for.webp', width: 350, height: 350, alt: 'Who Biotapes is for — ecological consultants, habitat banks, local authorities and rewilding projects in the UK' }}
         >
             <p class="w-75 text-start mx-a mb-1">Biotapes is built for:</p>
             <ul class="list-style-item-inside w-75 text-start mx-a">
@@ -117,7 +117,7 @@ const contactUrl = '/contact/';
         <BiotapesSection
             id="Use-Cases"
             heading="USE CASES"
-            image={{ src: '/assets/images/biotapes-use-cases.webp', alt: 'Biotapes use cases — BNG baseline evidence, nature-based solutions, habitat bank verification, impact investment' }}
+            image={{ src: '/assets/images/biotapes-use-cases.webp', width: 350, height: 350, alt: 'Biotapes use cases — BNG baseline evidence, nature-based solutions, habitat bank verification, impact investment' }}
         >
             <ul class="list-style-item-inside w-75 text-start mx-a">
                 <li>BNG Baseline Evidence</li>
@@ -133,7 +133,7 @@ const contactUrl = '/contact/';
         <BiotapesSection
             id="Pilot"
             heading="PILOT OPPORTUNITIES"
-            image={{ src: '/assets/images/biotapes-pilot-opportunities.webp', alt: 'Biotapes pilot opportunities — early partner integrations for BNG and natural capital reporting' }}
+            image={{ src: '/assets/images/biotapes-pilot-opportunities.webp', width: 350, height: 350, alt: 'Biotapes pilot opportunities — early partner integrations for BNG and natural capital reporting' }}
         >
             <p>We are currently onboarding early partners for pilot integrations.</p>
             <p class="w-75 text-start mx-a mb-1">Pilots typically include:</p>
@@ -150,7 +150,7 @@ const contactUrl = '/contact/';
         <BiotapesSection
             id="Partner"
             heading="PARTNER INTEGRATIONS"
-            image={{ src: '/assets/images/biotapes-partner-integrations.webp', alt: 'Biotapes API partner integrations — MRV tools, BNG calculators, TNFD reporting platforms, land management apps' }}
+            image={{ src: '/assets/images/biotapes-partner-integrations.webp', width: 350, height: 350, alt: 'Biotapes API partner integrations — MRV tools, BNG calculators, TNFD reporting platforms, land management apps' }}
         >
             <p class="w-75 text-start mx-a mb-1">The Biotapes API allows rapid integration into:</p>
             <ul class="list-style-item-inside w-75 text-start mx-a">
@@ -169,7 +169,7 @@ const contactUrl = '/contact/';
             id="About-PBF"
             heading="ABOUT PURPOSE BUILT FILMS"
             padded={false}
-            image={{ src: '/assets/images/purposebuiltfilms-logo.svg', alt: 'Purpose Built Films — rewilding and nature documentary filmmakers, Bristol, South West England' }}
+            image={{ src: '/assets/images/purposebuiltfilms-logo.svg', width: 933, height: 503, alt: 'Purpose Built Films — rewilding and nature documentary filmmakers, Bristol, South West England' }}
         >
             <p class="w-75 mx-a">
                 Purpose Built Films is a studio that blends world-class storytelling with ecological integrity.<br />

@@ -3,7 +3,7 @@ interface Props {
     /** Anchor target used by the Biotapes nav */
     id: string;
     heading: string;
-    image: { src: string; alt: string };
+    image: { src: string; alt: string; width: number; height: number };
     /** Override the section's horizontal padding (About PBF has none) */
     padded?: boolean;
 }
@@ -12,6 +12,6 @@ const { id, heading, image, padded = true } = Astro.props;
 ---
 <section id={id} class:list={['text-center mt-5 card vw-md-50 vw-75 mx-a py-5 border-box', { 'px-4': padded }]}>
     <h2 class="fs-1">{heading}</h2>
-    <img class="service-image img-fluid w-33 rounded-3 m-2" src={image.src} alt={image.alt} loading="lazy" />
+    <img class="service-image img-fluid w-33 rounded-3 m-2" src={image.src} width={image.width} height={image.height} alt={image.alt} loading="lazy" />
     <slot />
 </section>

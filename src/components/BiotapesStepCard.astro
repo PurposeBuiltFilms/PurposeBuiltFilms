@@ -9,7 +9,7 @@ const { step } = Astro.props;
 ---
 <div class="card my-2 w-md-50 w-100 mx-a text-start px-5">
     <div class="w-100 text-center mt-3">
-        <img class="service-image img-fluid w-md-33 w-75 rounded-3" src={step.image} alt={step.alt} loading="lazy" />
+        <img class="service-image img-fluid w-md-33 w-75 rounded-3" src={step.image} width={step.width} height={step.height} alt={step.alt} loading="lazy" />
         <h3 class="accent fs-5">{step.title}</h3>
     </div>
     <p>{step.intro}</p>
