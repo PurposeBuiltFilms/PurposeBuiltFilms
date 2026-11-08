@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import CtaButton from '../components/CtaButton.astro';
 
 const meta = {
     "title": "Pricing — Purpose Built Films | Rewilding & Nature Film Production, Bristol South West",
@@ -239,9 +240,7 @@ const meta = {
             </ul>
 
             <!-- CLIENT CTA -->
-            <div class="text-center m-3 pb-5">
-                <a href="/contact/"><span class="btn-cta rounded-4 d-inline-block p-2 px-4 fs-5">Let us tell <em>your</em> story</span></a>
-            </div>
+            <CtaButton href="/contact/" wrapperClass="text-center m-3 pb-5">Let us tell <em>your</em> story</CtaButton>
 
         </section>
     </div>
