@@ -6,6 +6,8 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
     "preview:cf": "npm run build && wrangler dev",
     "deploy:preview": "npm run build && wrangler deploy --name pbf-preview"
   },
@@ -34,6 +36,8 @@
   },
   "devDependencies": {
     "@fullhuman/postcss-purgecss": "^9.1.0",
+    "prettier": "3.9.10",
+    "prettier-plugin-astro": "1.1.2",
     "wrangler": "4.158.0"
   }
 }

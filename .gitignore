@@ -1,5 +1,10 @@
 # ── Dev tooling ───────────────────────────────────────────────────────────────
-.vscode/
+# Editor: share project settings, keep personal ones local
+# (!.vscode/ re-includes the folder in case a global gitignore excludes it)
+!.vscode/
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
 fiveserver.config.js
 node_modules/
 
