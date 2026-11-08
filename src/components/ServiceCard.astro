@@ -1,11 +1,13 @@
 ---
 import type { Service } from '../data/services';
+import { slugify } from '../utils/slug';
 
 interface Props {
     service: Service;
 }
 
 const { service } = Astro.props;
+const panelId = `service-${slugify(service.title)}`;
 ---
 <div class="d-flex flex-column flex-md-row align-items-center card service-info mx-auto vw-md-75 vw-100 my-4">
     <div class="col-12 col-md-4 pt-2">
@@ -14,8 +16,13 @@ const { service } = Astro.props;
     </div>
     <div class="col-12 col-md-8 mt-2 text-start px-1 px-md-0 text-center text-md-start">
         {service.intro}
-        <span class="service-cta cta-text"><br />more info...</span>
-        <div class="service-hidden hidden mt-3">
+        <span data-collapse-host>
+            <br />
+            <button type="button" class="service-cta cta-text" aria-expanded="false" aria-controls={panelId}>
+                more info<span class="visually-hidden"> about {service.title}</span>...
+            </button>
+        </span>
+        <div id={panelId} class="service-hidden hidden mt-3" tabindex="-1" inert>
             {service.details.map((paragraph) => <p>{paragraph}</p>)}
         </div>
     </div>

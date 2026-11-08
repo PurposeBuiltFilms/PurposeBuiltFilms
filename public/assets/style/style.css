@@ -299,7 +299,25 @@ a .btn-cta{
     transition: color 0.5s ease-in-out;
     color: var(--color-accent-hover);
 }
-.service-cta.hidden{display:none;}
+.service-cta.hidden,
+[data-collapse-host].hidden{display:none;}
+/* Toggle triggers are real <button>s: strip default button styling so they look as before */
+button.service-cta{
+    background: none;
+    border: 0;
+    padding: 0;
+    font: inherit;
+    color: inherit;
+    text-align: inherit;
+}
+button.service-cta.cta-text{color: var(--color-text-muted);}
+button.service-cta:hover{color: var(--color-accent-hover);}
+button.service-cta:focus-visible{
+    outline: 2px solid var(--color-accent-hover);
+    outline-offset: 2px;
+    border-radius: 0.25rem;
+}
+.service-hidden:focus{outline: none;}
 .service-hidden{
     transition: all 0.5s ease;
 }

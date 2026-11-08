@@ -73,21 +73,28 @@ document.addEventListener('DOMContentLoaded', () => {
     onScroll(); // run once on load so state is correct without scrolling
 
     // --- Collapsible service/FAQ boxes ---
-    document.querySelectorAll('.service-cta').forEach(cta => {
-        cta.addEventListener('click', e => {
-            e.preventDefault();
-            const container = cta.closest('.collapse-holder') || document;
+    // Triggers are <button aria-controls="panel-id">. Opening one closes the others in the
+    // same .collapse-holder. The trigger (or its [data-collapse-host] wrapper) hides once open,
+    // so focus moves to the revealed panel instead of being lost.
+    const hostOf  = btn => btn.closest('[data-collapse-host]') || btn;
+    const panelOf = btn => document.getElementById(btn.getAttribute('aria-controls'));
 
-            // Close all in this container
-            container.querySelectorAll('.service-cta').forEach(b => b.classList.remove('hidden'));
-            container.querySelectorAll('.service-hidden').forEach(h => h.classList.add('hidden'));
+    function setOpen(btn, open) {
+        const panel = panelOf(btn);
+        btn.setAttribute('aria-expanded', String(open));
+        hostOf(btn).classList.toggle('hidden', open);
+        if (panel) {
+            panel.classList.toggle('hidden', !open);
+            panel.inert = !open; // keeps collapsed content out of tab order and screen readers
+        }
+    }
 
-            // Open the clicked one
-            const section = cta.closest('.service-info')?.querySelector('.service-hidden');
-            if (section) {
-                section.classList.remove('hidden');
-                cta.classList.add('hidden');
-            }
+    document.querySelectorAll('.service-cta[aria-controls]').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const container = btn.closest('.collapse-holder') || document;
+            container.querySelectorAll('.service-cta[aria-controls]').forEach(other => setOpen(other, false));
+            setOpen(btn, true);
+            panelOf(btn)?.focus({ preventScroll: true });
         });
     });
 
