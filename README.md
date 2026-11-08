@@ -42,6 +42,21 @@ This site is intentionally lightweight and framework-agnostic, prioritising perf
 
 ---
 
+## Run Locally
+
+Requires PHP 8+ (`brew install php`) and Node.
+
+```bash
+npm install
+npm run dev
+```
+
+Open http://localhost:3000. This runs PHP's built-in server on `:8000` with browser-sync in front of it, so saving any `.php`, `.html`, `.css` or `.js` file reloads the browser. Ctrl-C stops both.
+
+Note: the built-in server ignores `.htaccess`, so the redirects in it only apply on the live host.
+
+---
+
 ## Credits
 
 **Design & Development:**  
