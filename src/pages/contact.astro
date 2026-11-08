@@ -34,9 +34,16 @@ const meta = {
         
         <!-- CONTACT FORM SECTION -->
         <section id="services-section" class="text-center collapse-holder mt-5 d-flex flex-column flex-md-row justify-content-center align-items-center w-100">
-            <form id="contact-form" action="/assets/php/contact.php" method="POST" class="vw-100 vw-md-50 card service-info d-flex flex-column align-items-center my-4 py-3 px-2">
+            <form id="contact-form" action="https://formspree.io/f/xvkknean" method="POST" class="vw-100 vw-md-50 card service-info d-flex flex-column align-items-center my-4 py-3 px-2">
 
-                <div id="form-response"></div>
+                <div id="form-response" role="status" aria-live="polite"></div>
+
+                <!-- Formspree: email subject line, plus a honeypot that bots fill in and people never see -->
+                <input type="hidden" name="_subject" value="New enquiry from purposebuiltfilms.com">
+                <div class="d-none">
+                    <label for="contact-gotcha">Leave this field empty</label>
+                    <input type="text" id="contact-gotcha" name="_gotcha" tabindex="-1" autocomplete="off">
+                </div>
 
                 <div class="mb-3 w-75 w-md-50">
                     <label for="name" class="form-label">Name</label>
