@@ -1,0 +1,21 @@
+# Cloudflare Pages response headers (https://developers.cloudflare.com/pages/configuration/headers/)
+# Only applied on Cloudflare, not by `npm run dev` or `npm run preview`.
+#
+# Content-Security-Policy: scripts, fonts, media and images only load from this site. Inline styles
+#   are allowed because Astro inlines the CSS; the only inline scripts are JSON-LD data, which CSP
+#   doesn't block. Formspree receives the contact form; YouTube serves the showreel and video embeds.
+# Strict-Transport-Security: HTTPS only for a year. No includeSubDomains/preload, so other
+#   subdomains aren't locked in.
+# /_astro/*: built files have content hashes in their names, so they can be cached forever.
+
+/*
+  Content-Security-Policy: default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; media-src 'self'; connect-src 'self' https://formspree.io; frame-src https://www.youtube.com https://www.youtube-nocookie.com; form-action 'self' https://formspree.io; frame-ancestors 'none'; base-uri 'self'; object-src 'none'; upgrade-insecure-requests
+  Strict-Transport-Security: max-age=31536000
+  Cross-Origin-Opener-Policy: same-origin
+  X-Frame-Options: DENY
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=()
+
+/_astro/*
+  Cache-Control: public, max-age=31536000, immutable
