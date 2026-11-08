@@ -292,6 +292,18 @@ a .btn-cta{
 }
 
 /* --------------------------------------
+    X.X - TEAM.                        */
+/* Force every headshot square so rounded-pill makes a true circle.
+   Non-square photos (e.g. Georgie, 500x457) are scaled up and cropped to cover. */
+.team-headshot{
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    object-position: center;
+}
+/* ----------------------------------- */
+
+/* --------------------------------------
     X.X - SERVICES.                    */
 .service-cta{
     position: relative;

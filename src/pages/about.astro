@@ -7,84 +7,126 @@ import { team } from '../data/team';
 import ClientLogos from '../components/ClientLogos.astro';
 
 const meta = {
-    "title": "About Us — Purpose Built Films | Rewilding & Wildlife Filmmakers Based in Bristol",
-    "description": "Meet the team behind Purpose Built Films — Bristol-based rewilding and wildlife documentary filmmakers. Founded by Adam Laister, with credits for BBC, Netflix and National Geographic including Blue Planet 3.",
-    "ogTitle": "About Us — Purpose Built Films | Rewilding & Wildlife Filmmakers, Bristol",
-    "ogDescription": "Meet the Bristol-based team behind Purpose Built Films. Founded by Adam Laister, rewilding and wildlife documentary filmmaker with BBC, Netflix, and National Geographic credits.",
-    "twitterDescription": "Bristol-based rewilding and wildlife documentary filmmakers. Founded by Adam Laister, BBC/Netflix/National Geographic filmmaker, South West England."
+    title: 'About Us — Purpose Built Films | Rewilding & Wildlife Filmmakers Based in Bristol',
+    description:
+        'Meet the team behind Purpose Built Films — Bristol-based rewilding and wildlife documentary filmmakers. Founded by Adam Laister, with credits for BBC, Netflix and National Geographic including Blue Planet 3.',
+    ogTitle: 'About Us — Purpose Built Films | Rewilding & Wildlife Filmmakers, Bristol',
+    ogDescription:
+        'Meet the Bristol-based team behind Purpose Built Films. Founded by Adam Laister, rewilding and wildlife documentary filmmaker with BBC, Netflix, and National Geographic credits.',
+    twitterDescription:
+        'Bristol-based rewilding and wildlife documentary filmmakers. Founded by Adam Laister, BBC/Netflix/National Geographic filmmaker, South West England.',
 };
 ---
+
 <BaseLayout meta={meta}>
     <Fragment slot="head">
-
-    <!-- JSON-LD: Person (Adam Laister) -->
-    <script is:inline type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "Person",
-        "@id": "https://purposebuiltfilms.com/about#adam-laister",
-        "name": "Adam Laister",
-        "jobTitle": "Founder and Director of Photography",
-        "description": "Wildlife and conservation filmmaker with 10 years of high-end broadcast documentary experience. Credits include productions for BBC, Netflix, and National Geographic, including Blue Planet 3.",
-        "worksFor": {
-            "@type": "Organization",
-            "name": "Purpose Built Films",
-            "url": "https://purposebuiltfilms.com"
-        },
-        "knowsAbout": ["wildlife filmmaking", "conservation documentary", "cinematography", "environmental science"],
-        "sameAs": [
-            "https://www.linkedin.com/in/adam-laister-48551331/",
-            "https://www.instagram.com/purposebuiltfilms/"
-        ]
-    }
-    </script>
+        <!-- JSON-LD: Person (Adam Laister) -->
+        <script is:inline type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@type": "Person",
+                "@id": "https://purposebuiltfilms.com/about#adam-laister",
+                "name": "Adam Laister",
+                "jobTitle": "Founder and Director of Photography",
+                "description": "Wildlife and conservation filmmaker with 10 years of high-end broadcast documentary experience. Credits include productions for BBC, Netflix, and National Geographic, including Blue Planet 3.",
+                "worksFor": {
+                    "@type": "Organization",
+                    "name": "Purpose Built Films",
+                    "url": "https://purposebuiltfilms.com"
+                },
+                "knowsAbout": [
+                    "wildlife filmmaking",
+                    "conservation documentary",
+                    "cinematography",
+                    "environmental science"
+                ],
+                "sameAs": [
+                    "https://www.linkedin.com/in/adam-laister-48551331/",
+                    "https://www.instagram.com/purposebuiltfilms/"
+                ]
+            }
+        </script>
     </Fragment>
 
-    
     <!-- MAIN CONTENT STARTS -->
     <div id="main-content" class="main-content container-fluid pt-vh-10 px-md-0 px-3">
         <!-- SERVICES SECTION -->
-        <section id="services-section" class="text-center collapse-holder mt-5 d-flex flex-column justify-content-center align-items-center">
+        <section
+            id="services-section"
+            class="text-center collapse-holder mt-5 d-flex flex-column justify-content-center align-items-center"
+        >
             <!-- OUR STORY -->
             <h3>Our Story</h3>
-            <div class="vw-100 vw-md-75 service-info d-flex flex-column align-items-center my-4 mx-2 ">
+            <div class="vw-100 vw-md-75 service-info d-flex flex-column align-items-center my-4 mx-2">
                 <div class="w-100 card py-3 px-2">
-                    <p>At Purpose Built, we believe in harnessing the power of storytelling to drive real-world change.</p>
-                    <p>Founded by Adam Laister, wildlife and conservation filmmaker with 10 years of experience in high-end broadcast documentaries, his journey began with a desire to forge a new path.</p>
-                    <p>During his career, Adam has worked with renowned networks like the BBC, Netflix and National Geographic, creating visually stunning content that captivates audiences.</p>
-                    <p>However, he realised that while television excels at entertaining, it often falls short in making a lasting impact. This growing awareness sparked a passion for deeper, purpose-driven storytelling - stories that don’t just entertain but inspire action and awareness.</p>
-                    <p>With a degree in Environmental Science, Adam wanted to utilise his knowledge and combined skill set to create films that inspire change, to tell the stories which don't fit into the usual TV remit.</p>
-                    <p>Purpose Built began with a question: <br /><span class="accent">What if the kind of films that move people in cinemas could also move them to take action?</span></p>
-                    <p>After many years producing award-winning documentaries, we’ve seen how powerful honest storytelling can be. We’ve filmed with activists, frontline workers, and everyday heroes - always aiming to go deeper than surface-level storytelling.</p>
-                    <p>Now, we use that experience to help charities, ethical brands, and purpose-driven organisations connect with their audiences in a meaningful way. Not with spin. Not with slogans. Just real stories, well told.</p>
+                    <p>
+                        At Purpose Built, we believe in harnessing the power of storytelling to drive real-world change.
+                    </p>
+                    <p>
+                        Founded by Adam Laister, wildlife and conservation filmmaker with 10 years of experience in
+                        high-end broadcast documentaries, his journey began with a desire to forge a new path.
+                    </p>
+                    <p>
+                        During his career, Adam has worked with renowned networks like the BBC, Netflix and National
+                        Geographic, creating visually stunning content that captivates audiences.
+                    </p>
+                    <p>
+                        However, he realised that while television excels at entertaining, it often falls short in
+                        making a lasting impact. This growing awareness sparked a passion for deeper, purpose-driven
+                        storytelling - stories that don’t just entertain but inspire action and awareness.
+                    </p>
+                    <p>
+                        With a degree in Environmental Science, Adam wanted to utilise his knowledge and combined skill
+                        set to create films that inspire change, to tell the stories which don't fit into the usual TV
+                        remit.
+                    </p>
+                    <p>
+                        Purpose Built began with a question: <br />
+                        <span class="accent">
+                            What if the kind of films that move people in cinemas could also move them to take action?
+                        </span>
+                    </p>
+                    <p>
+                        After many years producing award-winning documentaries, we’ve seen how powerful honest
+                        storytelling can be. We’ve filmed with activists, frontline workers, and everyday heroes -
+                        always aiming to go deeper than surface-level storytelling.
+                    </p>
+                    <p>
+                        Now, we use that experience to help charities, ethical brands, and purpose-driven organisations
+                        connect with their audiences in a meaningful way. Not with spin. Not with slogans. Just real
+                        stories, well told.
+                    </p>
                     <!-- <p class="accent fs-5">We’re not just an agency.</p>
                     <p>We’re not a production house chasing trends. We’re impact producers - filmmakers who care about where the story goes after the credits roll.</p> -->
                 </div>
             </div>
             <!-- MEET THE TEAM -->
-            <h3 class="w-100">Meet the Team </h3>
+            <h3 class="w-100 pt-5 pb-3">Meet the Team</h3>
             <div class="container-md container-fluid m-0 p-0">
-                <div class="row">
-                    {team.map((member) => <TeamCard member={member} />)}
+                {/* Column count comes from row-cols-*: 1 per row on phones, 3 per row on
+                    tablets and small laptops (5 members wrap as 3 + 2), all 5 in one row from
+                    1200px. justify-content-center centres a short last row. */}
+                <div class="row justify-content-center row-cols-1 row-cols-md-3 row-cols-xl-5">
+                    {team.map((member) => (
+                        <TeamCard member={member} />
+                    ))}
                 </div>
             </div>
         </section>
 
         <ClientLogos
             heading="Our Recent Work"
-            cta={{ href: '/contact/', label: 'Start telling your story...', wrapperClass: 'text-center' }}
+            cta={{ href: '/contact/', label: 'Start telling your story...', wrapperClass: 'text-center pt-2 pb-3' }}
         />
 
         <!-- VIDEOS SECTION -->
-        <section id="services-section" class="text-center container-fluid collapse-holder pt-3 pb-4">
-
+        <section id="services-section" class="text-center container-fluid collapse-holder pt-5 pb-5">
             <!-- YOUTUBE VIDEOS -->
             <div class="row vw-100 vw-md-75 mx-a service-info align-items-stretch">
-                {videos.map((video) => <VideoCard video={video} />)}
+                {videos.map((video) => (
+                    <VideoCard video={video} />
+                ))}
             </div>
-
         </section>
-
     </div>
-
 </BaseLayout>
