@@ -264,6 +264,9 @@ a .btn-cta{
 }
 .nav-links a{
     text-decoration: none !important;
+    /* link sits inside the <li> pill: fill it and take its colour */
+    display: block;
+    color: inherit;
 }
 .nav-bar.scrolled .nav-links{
     flex-direction: row;

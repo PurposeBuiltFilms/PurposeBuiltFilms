@@ -1,0 +1,37 @@
+---
+export interface NavLink {
+    href: string;
+    label: string;
+}
+
+interface Props {
+    links?: NavLink[];
+}
+
+const defaultLinks: NavLink[] = [
+    { href: '/', label: 'Home' },
+    { href: '/services/', label: 'Pricing' },
+    { href: '/about/', label: 'About Us' },
+    { href: '/biotapes.html', label: 'Biotapes' },
+    { href: '/contact/', label: 'Contact' },
+];
+
+const { links = defaultLinks } = Astro.props;
+---
+<!-- NAV BAR -->
+<nav class="nav-bar w-100 vh-100 d-flex flex-nowrap flex-md-row flex-column align-items-center justify-content-center">
+
+    <!-- NAV LOGO -->
+    <div class="nav-logo w-100">
+        <img class="w-100" src="/assets/images/purposebuiltfilms-logo.svg" alt="Purpose Built Films">
+    </div>
+
+    <!-- NAV LINKS -->
+    <ul class="nav-links flex-md-column flex-row m-md-0 my-2 ps-md-1 ps-0 mw-25 w-100 d-flex align-items-center justify-content-md-start justify-content-around">
+        {links.map(({ href, label }) => (
+            <li class="nav rounded-2 px-2 border-box m-md-3">
+                <a href={href}>{label}</a>
+            </li>
+        ))}
+    </ul>
+</nav>

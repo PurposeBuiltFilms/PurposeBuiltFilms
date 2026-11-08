@@ -2,9 +2,10 @@
   "name": "purposebuiltfilms",
   "version": "1.0.0",
   "description": "",
-  "main": "fiveserver.config.js",
   "scripts": {
-    "dev": "concurrently -k -n php,sync \"php -S localhost:8000\" \"browser-sync start --proxy localhost:8000 --port 3000 --files '**/*.php' '**/*.html' 'assets/**/*.css' 'assets/**/*.js' --no-ui --no-notify --reload-delay 80\""
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
   },
   "repository": {
     "type": "git",
@@ -17,8 +18,8 @@
     "url": "https://github.com/chalexR/PurposeBuiltFilms/issues"
   },
   "homepage": "https://github.com/chalexR/PurposeBuiltFilms#readme",
-  "devDependencies": {
-    "browser-sync": "^3.0.4",
-    "concurrently": "^10.0.7"
-  }
+  "dependencies": {
+    "astro": "^7.4.7"
+  },
+  "type": "module"
 }

@@ -22,3 +22,8 @@ Thumbs.db
 # ── XAMPP / local server ──────────────────────────────────────────────────────
 error_log
 *.log
+
+# ── Astro ──
+dist/
+.astro/
+.legacy-snapshots/

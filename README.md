@@ -36,7 +36,7 @@ No spin. No slogans. Just real stories, well told.
 - HTML
 - CSS (Bootstrap where appropriate)
 - JavaScript
-- PHP (contact form processing)
+- Astro (static site generation)
 
 This site is intentionally lightweight and framework-agnostic, prioritising performance, clarity, and longevity.
 
@@ -44,16 +44,19 @@ This site is intentionally lightweight and framework-agnostic, prioritising perf
 
 ## Run Locally
 
-Requires PHP 8+ (`brew install php`) and Node.
+Built with [Astro](https://astro.build) as a static site. Requires Node.
 
 ```bash
 npm install
-npm run dev
+npm run dev       # http://localhost:4321 with hot reload
+npm run build     # static output in dist/
+npm run preview   # serve the built dist/ locally
 ```
 
-Open http://localhost:3000. This runs PHP's built-in server on `:8000` with browser-sync in front of it, so saving any `.php`, `.html`, `.css` or `.js` file reloads the browser. Ctrl-C stops both.
-
-Note: the built-in server ignores `.htaccess`, so the redirects in it only apply on the live host.
+- Pages: `src/pages/` (each file is a route, e.g. `about.astro` is `/about/`)
+- Shared layout: `src/layouts/BaseLayout.astro` (head, meta, nav, footer)
+- Components: `src/components/`
+- Static files served as-is: `public/` (images, CSS, JS, favicons, sitemap)
 
 ---
 

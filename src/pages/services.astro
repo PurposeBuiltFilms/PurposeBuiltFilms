@@ -1,30 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pricing — Purpose Built Films | Rewilding &amp; Nature Film Production, Bristol South West</title>
-    <meta name="description" content="Transparent rewilding and nature documentary film pricing from Bristol. Packages from £1,500 for short conservation films to £6,000+ for full series. Serving charities and land managers across the South West.">
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
 
-    <!-- Open Graph -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://purposebuiltfilms.com/services.php">
-    <meta property="og:title" content="Pricing — Purpose Built Films | Rewilding &amp; Nature Film Production, Bristol">
-    <meta property="og:description" content="Transparent rewilding and nature film pricing from £1,500. Short films, CEO branding, monthly content. Bristol-based, working across the South West and UK.">
-    <meta property="og:image" content="https://purposebuiltfilms.com/assets/images/og-image.jpg">
-    <meta property="og:site_name" content="Purpose Built Films">
-
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Pricing — Rewilding &amp; Nature Film Production | Purpose Built Films, Bristol">
-    <meta name="twitter:description" content="Nature and rewilding documentary film pricing from £1,500. Bristol-based, South West England. Conservation charities, land managers, purpose-led brands.">
-    <meta name="twitter:image" content="https://purposebuiltfilms.com/assets/images/og-image.jpg">
-
-    <!-- INCLUDE HEAD INFO -->
-    <?php include_once "./inc/head.php"; ?>
+const meta = {
+    "title": "Pricing — Purpose Built Films | Rewilding & Nature Film Production, Bristol South West",
+    "description": "Transparent rewilding and nature documentary film pricing from Bristol. Packages from £1,500 for short conservation films to £6,000+ for full series. Serving charities and land managers across the South West.",
+    "ogTitle": "Pricing — Purpose Built Films | Rewilding & Nature Film Production, Bristol",
+    "ogDescription": "Transparent rewilding and nature film pricing from £1,500. Short films, CEO branding, monthly content. Bristol-based, working across the South West and UK.",
+    "twitterTitle": "Pricing — Rewilding & Nature Film Production | Purpose Built Films, Bristol",
+    "twitterDescription": "Nature and rewilding documentary film pricing from £1,500. Bristol-based, South West England. Conservation charities, land managers, purpose-led brands."
+};
+---
+<BaseLayout meta={meta}>
+    <Fragment slot="head">
 
     <!-- JSON-LD: Service offerings -->
-    <script type="application/ld+json">
+    <script is:inline type="application/ld+json">
     {
         "@context": "https://schema.org",
         "@graph": [
@@ -88,14 +78,9 @@
         ]
     }
     </script>
+    </Fragment>
 
-</head>
-<body class="parallax-wrapper">
     
-    <!-- INCLUDE NAV BAR -->
-    <?php include_once "./inc/nav.php"; ?>
-    
-    <div class="parallax-bg"></div>
     <!-- MAIN CONTENT STARTS -->
     <section class="vh-10"></section>
     <div id="main-content" class="main-content w-100 px-md-0 px-3 pb-0">
@@ -255,13 +240,10 @@
 
             <!-- CLIENT CTA -->
             <div class="text-center m-3 pb-5">
-                <a href="./contact.html"><span class="btn-cta rounded-4 d-inline-block p-2 px-4 fs-5">Let us tell <em>your</em> story</span></a>
+                <a href="/contact/"><span class="btn-cta rounded-4 d-inline-block p-2 px-4 fs-5">Let us tell <em>your</em> story</span></a>
             </div>
 
         </section>
     </div>
 
-    <!-- INCLUDE FOOTER FILE -->
-    <?php include_once "./inc/footer.php"; ?>
-    </body>
-</html>
+</BaseLayout>

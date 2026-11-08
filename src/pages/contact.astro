@@ -1,30 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact &amp; FAQ — Purpose Built Films | Rewilding Film Production, Bristol South West</title>
-    <meta name="description" content="Get in touch with Purpose Built Films — rewilding and nature documentary filmmakers based in Bristol, South West England. Book a free discovery call or send us a message about your conservation project.">
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
 
-    <!-- Open Graph -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://purposebuiltfilms.com/contact.php">
-    <meta property="og:title" content="Contact &amp; FAQ — Purpose Built Films | Rewilding Film Production, Bristol">
-    <meta property="og:description" content="Book a free discovery call with Bristol's rewilding and nature documentary filmmakers. Serving conservation charities and land managers across the South West and UK.">
-    <meta property="og:image" content="https://purposebuiltfilms.com/assets/images/og-image.jpg">
-    <meta property="og:site_name" content="Purpose Built Films">
-
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Contact — Purpose Built Films | Rewilding Filmmakers, Bristol">
-    <meta name="twitter:description" content="Book a free discovery call with Bristol's rewilding and nature documentary filmmakers. South West England and UK-wide.">
-    <meta name="twitter:image" content="https://purposebuiltfilms.com/assets/images/og-image.jpg">
-
-    <!-- INCLUDE HEAD INFO -->
-    <?php include_once "./inc/head.php"; ?>
+const meta = {
+    "title": "Contact & FAQ — Purpose Built Films | Rewilding Film Production, Bristol South West",
+    "description": "Get in touch with Purpose Built Films — rewilding and nature documentary filmmakers based in Bristol, South West England. Book a free discovery call or send us a message about your conservation project.",
+    "ogTitle": "Contact & FAQ — Purpose Built Films | Rewilding Film Production, Bristol",
+    "ogDescription": "Book a free discovery call with Bristol's rewilding and nature documentary filmmakers. Serving conservation charities and land managers across the South West and UK.",
+    "twitterTitle": "Contact — Purpose Built Films | Rewilding Filmmakers, Bristol",
+    "twitterDescription": "Book a free discovery call with Bristol's rewilding and nature documentary filmmakers. South West England and UK-wide."
+};
+---
+<BaseLayout meta={meta}>
+    <Fragment slot="head">
 
     <!-- JSON-LD: FAQPage -->
-    <script type="application/ld+json">
+    <script is:inline type="application/ld+json">
     {
         "@context": "https://schema.org",
         "@type": "FAQPage",
@@ -80,13 +70,9 @@
         ]
     }
     </script>
-</head>
-<body class="parallax-wrapper">
+    </Fragment>
 
-    <!-- INCLUDE NAV BAR -->
-    <?php include_once "./inc/nav.php"; ?>
     
-    <div class="parallax-bg"></div>
     <!-- MAIN CONTENT STARTS -->
     <div id="main-content" class="main-content container-fluid pt-vh-10">
         
@@ -265,8 +251,7 @@
         </section>
     </div>
 
-    <!-- INCLUDE FOOTER FILE -->
-    <?php include_once "./inc/footer.php"; ?>
-    <script src="/assets/js/contact.js"></script>
-    </body>
-</html>
+    <Fragment slot="after-footer">
+    <script is:inline src="/assets/js/contact.js"></script>
+    </Fragment>
+</BaseLayout>
