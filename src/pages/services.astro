@@ -1,6 +1,32 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import JsonLd from '../components/JsonLd.astro';
+import PackageCard from '../components/PackageCard.astro';
+import { formatPrice, packages } from '../data/packages';
 import CtaButton from '../components/CtaButton.astro';
+
+const servicesSchema = {
+    '@context': 'https://schema.org',
+    '@graph': packages.map((pkg) => ({
+        '@type': 'Service',
+        name: pkg.schema.name,
+        description: pkg.schema.description,
+        offers: {
+            '@type': 'Offer',
+            priceCurrency: 'GBP',
+            price: String(pkg.price),
+            priceSpecification: {
+                '@type': 'PriceSpecification',
+                description: `Starting at ${formatPrice(pkg.price)} + VAT, ${pkg.schema.timeline}`,
+            },
+        },
+        provider: {
+            '@type': 'Organization',
+            name: 'Purpose Built Films',
+            url: 'https://purposebuiltfilms.com',
+        },
+    })),
+};
 
 const meta = {
     "title": "Pricing — Purpose Built Films | Rewilding & Nature Film Production, Bristol South West",
@@ -12,74 +38,7 @@ const meta = {
 };
 ---
 <BaseLayout meta={meta}>
-    <Fragment slot="head">
-
-    <!-- JSON-LD: Service offerings -->
-    <script is:inline type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@graph": [
-            {
-                "@type": "Service",
-                "name": "Sprout — Short Documentary Film",
-                "description": "Entry-level cinematic documentary. A 3-minute story-driven film ideal for charities, conservation organisations, and brands.",
-                "offers": {
-                    "@type": "Offer",
-                    "priceCurrency": "GBP",
-                    "price": "1500",
-                    "priceSpecification": {
-                        "@type": "PriceSpecification",
-                        "description": "Starting at £1,500 + VAT, 2-3 week delivery"
-                    }
-                },
-                "provider": {
-                    "@type": "Organization",
-                    "name": "Purpose Built Films",
-                    "url": "https://purposebuiltfilms.com"
-                }
-            },
-            {
-                "@type": "Service",
-                "name": "Wild Meadow — Extended Documentary",
-                "description": "5-10 minute cinematic documentary with richer storytelling, multiple filming days, and comprehensive post-production.",
-                "offers": {
-                    "@type": "Offer",
-                    "priceCurrency": "GBP",
-                    "price": "2000",
-                    "priceSpecification": {
-                        "@type": "PriceSpecification",
-                        "description": "Starting at £2,000 + VAT, 5-6 week delivery"
-                    }
-                },
-                "provider": {
-                    "@type": "Organization",
-                    "name": "Purpose Built Films",
-                    "url": "https://purposebuiltfilms.com"
-                }
-            },
-            {
-                "@type": "Service",
-                "name": "Ancient Forest — Documentary Series",
-                "description": "A series of three 5-10 minute cinematic documentaries for extensive multi-narrative projects.",
-                "offers": {
-                    "@type": "Offer",
-                    "priceCurrency": "GBP",
-                    "price": "6000",
-                    "priceSpecification": {
-                        "@type": "PriceSpecification",
-                        "description": "Starting at £6,000 + VAT, 10-12 week production"
-                    }
-                },
-                "provider": {
-                    "@type": "Organization",
-                    "name": "Purpose Built Films",
-                    "url": "https://purposebuiltfilms.com"
-                }
-            }
-        ]
-    }
-    </script>
-    </Fragment>
+    <JsonLd slot="head" data={servicesSchema} />
 
     
     <!-- MAIN CONTENT STARTS -->
@@ -100,119 +59,7 @@ const meta = {
             <!-- PACKAGE OPTIONS -->
             <ul class="d-flex flex-column align-items-center p-1 p-md-0 border-box">
 
-                <!-- PACKAGE 1 -->
-                <li class="vw-100 vw-md-75 card service-info d-flex flex-column align-items-center my-4 py-3 px-md-2">
-                    <div class="d-flex justify-content-between align-items-stretch align-items-md-start w-100 flex-md-row flex-column">
-                        <h3 class="w-md-25 flex-grow-0 text-center accent-hover">Sprout</h3>
-                        <div class="flex-grow-1 mx-3 text-md-start text-center">
-                            <p class="m-0 py-1 fs-5">
-                                Entry-level films to get your message growing.
-                            </p>
-                            <p class="m-0 p-0">
-                                Ideal for organizations seeking a concise storytelling solution.
-                            </p>
-                            <p class="m-0 py-2">
-                                <span class="accent">Deliverables:</span> <br />A 3-minute cinematic documentary. Brand identity, CEO Branding - a simple story, well told.
-                            </p>
-                            <span class="service-cta cta-text">more info...</span>
-                        </div>
-                    </div>
-                    <div class="service-hidden hidden vw-md-50 w-100 px-md-5 py-2 mx-5 mt-3 mt-md-0">
-                        <p class="fs-5">Starting at £1,500 +VAT</p>
-                        <p>2-3 week delivery from concept to delivery</p>
-                        <ul class="d-inline">
-                            <span class="accent fs-6">Includes:</span><br/>
-                            <li class="d-inline">
-                                Initial consultation and story development
-                            </li><br />
-                            <li class="d-inline">
-                                Initial consultation and story development
-                            </li><br />
-                            <li class="d-inline">
-                                Basic editing and post-production
-                            </li><br />
-                            <li class="d-inline">
-                                Final film delivery in multiple formats
-                            </li>
-                        </ul>
-                    </div>
-                </li>
-
-                <!-- PACKAGE 2 -->
-                <li class="vw-100 vw-md-75 card service-info d-flex flex-column align-items-center my-4 py-3 px-md-2">
-                    <div class="d-flex justify-content-between align-items-stretch align-items-md-start w-100 flex-md-row flex-column">
-                        <h3 class="w-md-25 flex-grow-0 accent-hover">Wild Meadow</h3>
-                        <div class="flex-grow-1 mx-3 text-md-start text-center">
-                            <p class="m-0 py-1 fs-5">
-                               Richer, more colourful stories with more coverage and edit time.
-                            </p>
-                            <p class="m-0 p-0">
-                                Suited for projects requiring more detailed exploration.
-                            </p>
-                            <p class="m-0 py-2">
-                                <span class="accent">Deliverables:</span> <br />A 5-10 minute cinematic documentary. Emotion, connection, change.
-                            </p>
-                            <span class="service-cta cta-text">more info...</span>
-                        </div>
-                    </div>
-                    <div class="service-hidden hidden vw-md-50 w-100 px-md-5 py-2 mx-5 mt-3 mt-md-0">
-                        <p class="fs-5">Starting at £2,000 +VAT</p>
-                        <p>5-6 weeks from concept to delivery.</p>
-                        <ul class="d-inline">
-                            <span class="accent fs-6">Includes:</span><br/>
-                            <li class="d-inline">
-                                Detailed story concept and script development
-                            </li><br />
-                            <li class="d-inline">
-                                Two days of filming
-                            </li><br />
-                            <li class="d-inline">
-                                Comprehensive editing and post-production with sound design
-                            </li><br />
-                            <li class="d-inline">
-                                Final film delivery with consultation on distribution strategy
-                            </li>
-                        </ul>
-                    </div>
-                </li>
-
-                <!-- PACKAGE 3 -->
-                <li class="vw-100 vw-md-75 card service-info d-flex flex-column align-items-center my-4 py-3 px-md-2">
-                    <div class="d-flex justify-content-between align-items-stretch align-items-md-start w-100 flex-md-row flex-column">
-                        <h3 class="w-md-25 flex-grow-0 accent-hover">Ancient Forest</h3>
-                        <div class="flex-grow-1 mx-3 text-md-start text-center">
-                            <p class="m-0 py-1 fs-5">
-                               Cinematic, high-impact productions that hold up over time.
-                            </p>
-                            <p class="m-0 p-0">
-                                For extensive projects involving multiple narratives or locations.
-                            </p>
-                            <p class="m-0 py-2">
-                                <span class="accent">Deliverables:</span> <br />A series of 3 films, each 5-10 minutes in length.
-                            </p>
-                            <span class="service-cta cta-text">more info...</span>
-                        </div>
-                    </div>
-                    <div class="service-hidden hidden vw-md-50 w-100 px-md-5 py-2 mx-5 mt-3 mt-md-0">
-                        <p class="fs-5">Starting at £6,000 +. VAT</p>
-                        <p>10-12 weeks for full series production.</p>
-                        <ul class="d-inline">
-                            <span class="accent fs-6">Includes:</span><br/>
-                            <li class="d-inline">
-                                Full strategic consultation and multi-story planning
-                            </li><br />
-                            <li class="d-inline">
-                                Up to five days of filming
-                            </li><br />
-                            <li class="d-inline">
-                                Enhanced editing with custom graphics and effects
-                            </li><br />
-                            <li class="d-inline">
-                                Final delivery of films along with tailored engagement strategy
-                            </li>
-                        </ul>
-                    </div>
-                </li>
+                {packages.map((pkg) => <PackageCard pkg={pkg} />)}
 
                 <!-- PACKAGE ADD ONS -->
                 <li class="vw-100 vw-md-75 card service-info d-flex flex-column align-items-center my-4 py-3 px-md-2">
