@@ -21,6 +21,9 @@ interface Props {
 
 const { meta, navLinks, navSecondaryLogo, footerLegalNote } = Astro.props;
 const canonical = new URL(Astro.url.pathname, Astro.site).href;
+// TODO: og-image.jpg doesn't exist yet, so shared links (LinkedIn, Facebook, etc.) show no
+// preview image. Add a 1200×630 still (e.g. a showreel frame) at
+// public/assets/images/og-image.jpg; every page picks it up via og:image / twitter:image.
 const ogImage = new URL('/assets/images/og-image.jpg', Astro.site).href;
 ---
 <!DOCTYPE html>
