@@ -4,7 +4,8 @@
 /about.php      /about/     301
 /services.php   /services/  301
 /contact.php    /contact/   301
-/biotapes.html  /biotapes/  301
+# Biotapes temporarily hidden; re-enable with src/pages/_biotapes.astro
+# /biotapes.html  /biotapes/  301
 
 # Old Wix orphan URL
 /about-1        /about/     301
