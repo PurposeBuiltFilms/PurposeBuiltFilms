@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { Icon } from 'astro-icon/components';
 import FaqItem from '../components/FaqItem.astro';
 import JsonLd from '../components/JsonLd.astro';
 import { faqs } from '../data/faqs';
@@ -65,39 +66,39 @@ const meta = {
             <div class="w-md-25 w-100 text-start ms-md-5 mx-1">
                 
                 <p class="accent-hover">
-                    <i class="fa-solid fa-inbox me-2"></i><a class="color-inherit" href="mailto:info@purposebuiltfilms.com">info@purposebuiltfilms.com</a>
+                    <Icon name="fa6-solid:inbox" class="icon me-2" /><a class="color-inherit" href="mailto:info@purposebuiltfilms.com">info@purposebuiltfilms.com</a>
                 </p>
                 <p class="accent-hover">
-                    <i class="fa-solid fa-phone me-2"></i><a class="color-inherit" href="tel: +447958646101">+447958646101</a>
+                    <Icon name="fa6-solid:phone" class="icon me-2" /><a class="color-inherit" href="tel:+447958646101">+447958646101</a>
                 </p>
                 <p class="accent-hover">
-                    <i class="fa-solid fa-calendar-days me-2"></i><a class="color-inherit" href="https://calendly.com/purposebuiltfilms/30min" target="_blank">Book a Discovery Call</a>
+                    <Icon name="fa6-solid:calendar-days" class="icon me-2" /><a class="color-inherit" href="https://calendly.com/purposebuiltfilms/30min" target="_blank" rel="noopener noreferrer">Book a Discovery Call</a>
                 </p>
                 <ul class="list-unstyled">
                     Connect with us on:
                     <li>
-                        <a class="accent-hover text-decoration-none" href="https://wa.me/447958646101?text=I%20want%20to%20know%20more%20about%20Purpose%20Built%20Films" target="_blank">
-                            <i class="fa-brands fa-whatsapp me-2"></i>Whatsapp
+                        <a class="accent-hover text-decoration-none" href="https://wa.me/447958646101?text=I%20want%20to%20know%20more%20about%20Purpose%20Built%20Films" target="_blank" rel="noopener noreferrer">
+                            <Icon name="fa6-brands:whatsapp" class="icon me-2" />Whatsapp
                         </a>
                     </li>
                     <li>
                         <a class="accent-hover text-decoration-none" href="https://www.facebook.com/purposebuiltfilms" target="_blank" rel="noopener noreferrer">
-                            <i class="fa-brands fa-facebook me-2"></i>Facebook
+                            <Icon name="fa6-brands:facebook" class="icon me-2" />Facebook
                         </a>
                     </li>
                     <li>
                         <a class="accent-hover text-decoration-none" href="https://www.linkedin.com/company/purposebuiltfilms" target="_blank" rel="noopener noreferrer">
-                            <i class="fa-brands fa-linkedin me-2"></i>LinkedIn
+                            <Icon name="fa6-brands:linkedin" class="icon me-2" />LinkedIn
                         </a>
                     </li>
                     <li>
                         <a class="accent-hover text-decoration-none" href="https://www.instagram.com/purposebuiltfilms/" target="_blank" rel="noopener noreferrer">
-                            <i class="fa-brands fa-instagram me-2"></i>Instagram
+                            <Icon name="fa6-brands:instagram" class="icon me-2" />Instagram
                         </a>
                     </li>
                     <li>
                         <a class="accent-hover text-decoration-none" href="https://www.youtube.com/@purposebuiltfilms" target="_blank" rel="noopener noreferrer">
-                            <i class="fa-brands fa-youtube me-2"></i>YouTube
+                            <Icon name="fa6-brands:youtube" class="icon me-2" />YouTube
                         </a>
                     </li>
                 </ul>

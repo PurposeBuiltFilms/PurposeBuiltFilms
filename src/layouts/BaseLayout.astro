@@ -2,6 +2,15 @@
 import Nav, { type NavLink } from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
 
+// Self-hosted fonts and site CSS, bundled by Astro (no third-party CDNs)
+import '@fontsource-variable/funnel-display/wght.css';
+import '@fontsource-variable/roboto-flex/opsz.css';
+import '../styles/bootstrap.min.css';
+import '../styles/style.css';
+// Latin font files, preloaded so text renders without waiting on CSS to discover them
+import funnelDisplayLatin from '@fontsource-variable/funnel-display/files/funnel-display-latin-wght-normal.woff2?url';
+import robotoFlexLatin from '@fontsource-variable/roboto-flex/files/roboto-flex-latin-opsz-normal.woff2?url';
+
 export interface Meta {
     title: string;
     description: string;
@@ -49,12 +58,8 @@ const ogImage = new URL('/assets/images/og-image.jpg', Astro.site).href;
     <meta name="twitter:description" content={meta.twitterDescription ?? meta.ogDescription ?? meta.description}>
     <meta name="twitter:image" content={ogImage}>
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-Avb2QiuDEEvB4bZJYdft2mNjVShBftLdPG8FJ0V7irTLQ8Uo0qcPxh4Plq7G5tGm0rU+1SPhVotteLpBERwTkw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@300..800&family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/assets/style/bootstrap.min.css">
-    <link rel="stylesheet" href="/assets/style/style.css">
+    <link rel="preload" href={funnelDisplayLatin} as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href={robotoFlexLatin} as="font" type="font/woff2" crossorigin>
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -71,10 +76,8 @@ const ogImage = new URL('/assets/images/og-image.jpg', Astro.site).href;
 
     <slot />
 
-    <!-- Bootstrap JS -->
-    <script is:inline src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-    <!-- Shared site JS -->
-    <script is:inline src="/assets/js/main.js"></script>
+    <!-- Shared site JS (defer: runs after parsing, never blocks rendering) -->
+    <script is:inline src="/assets/js/main.js" defer></script>
 
     <Footer legalNote={footerLegalNote} />
 

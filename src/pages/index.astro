@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { Icon } from 'astro-icon/components';
 import ServiceCard from '../components/ServiceCard.astro';
 import { services } from '../data/services';
 import ClientLogos from '../components/ClientLogos.astro';
@@ -15,6 +16,8 @@ const meta = {
 ---
 <BaseLayout meta={meta}>
     <Fragment slot="head">
+    <!-- Hero poster is the LCP image: fetch it early so it paints before the 5 MB video arrives -->
+    <link rel="preload" as="image" href="/assets/images/showreel-poster.webp" fetchpriority="high">
 
     <!-- JSON-LD: Organization + LocalBusiness + Person -->
     <script is:inline type="application/ld+json">
@@ -86,6 +89,7 @@ const meta = {
             <video
                 class="w-100 rvh-100 object-fit-cover"
                 preload="none"
+                poster="/assets/images/showreel-poster.webp"
                 src="/assets/video/showreel.mp4"
                 autoplay
                 muted
@@ -104,8 +108,8 @@ const meta = {
                         <h2 class="w-100 fs-1"><span class="accent">Built</span><span class="hero-shrink"> to Last</span></h2>
                         <a href="https://calendly.com/purposebuiltfilms/30min" target="_blank"><div class="d-inline-block btn-cta rounded-4 p-2 px-4 mt-5">Book a Discovery Call</div></a>
                         <div class="mt-4">
-                            <button type="button" class="showreel-play-btn" data-bs-toggle="modal" data-bs-target="#showreelModal" aria-label="Watch our showreel">
-                                <i class="fa-solid fa-play"></i>
+                            <button type="button" class="showreel-play-btn" aria-haspopup="dialog" aria-controls="showreelModal" aria-label="Watch our showreel">
+                                <Icon name="fa6-solid:play" class="icon" />
                             </button>
                             <div class="small mt-2 text-white" style="opacity:0.8;letter-spacing:0.1em;text-transform:uppercase;font-size:0.75rem;">Watch Showreel</div>
                         </div>
@@ -147,28 +151,21 @@ const meta = {
 
     <Fragment slot="after-footer">
     
-    <!-- SHOWREEL MODAL -->
-    <div class="modal fade" id="showreelModal" tabindex="-1" aria-label="Purpose Built Films Showreel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered modal-xl">
-            <div class="modal-content bg-dark border-0">
-                <div class="modal-header border-0 pb-0">
-                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body p-0 p-md-3 pt-0">
-                    <div class="ratio ratio-16x9">
-                        <iframe
-                            id="showreelIframe"
-                            src=""
-                            data-src="https://www.youtube.com/embed/NobAg6yFsBE?autoplay=1&rel=0"
-                            title="Purpose Built Films Showreel — Rewilding and Nature Documentary Filmmakers, Bristol"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                            allowfullscreen
-                        ></iframe>
-                    </div>
-                </div>
-            </div>
+    <!-- SHOWREEL MODAL (native <dialog>: focus trap, Esc to close and backdrop come from the browser) -->
+    <dialog class="showreel-dialog" id="showreelModal" aria-label="Purpose Built Films Showreel">
+        <div class="showreel-dialog-header">
+            <button type="button" class="btn-close btn-close-white" data-close aria-label="Close"></button>
         </div>
-    </div>
-    <script is:inline src="/assets/js/showreel.js"></script>
+        <div class="ratio ratio-16x9">
+            <iframe
+                id="showreelIframe"
+                data-src="https://www.youtube.com/embed/NobAg6yFsBE?autoplay=1&rel=0"
+                title="Purpose Built Films Showreel — Rewilding and Nature Documentary Filmmakers, Bristol"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen
+            ></iframe>
+        </div>
+    </dialog>
+    <script is:inline src="/assets/js/showreel.js" defer></script>
     </Fragment>
 </BaseLayout>
