@@ -8,6 +8,11 @@ interface Props {
     links?: NavLink[];
     /** Extra logo shown beside the PBF logo (used on the Biotapes page) */
     secondaryLogo?: { src: string; alt: string; width: number; height: number };
+    /**
+     * Show the full-screen intro nav at the top of the page (homepage only).
+     * Otherwise the nav renders compact from the start and stays compact.
+     */
+    fullscreen?: boolean;
 }
 
 const defaultLinks: NavLink[] = [
@@ -19,12 +24,12 @@ const defaultLinks: NavLink[] = [
     { href: '/contact/', label: 'Contact' },
 ];
 
-const { links = defaultLinks, secondaryLogo } = Astro.props;
+const { links = defaultLinks, secondaryLogo, fullscreen = false } = Astro.props;
 // Long link lists (Biotapes) wrap and use tighter vertical spacing
 const isLong = links.length > 5;
 ---
 <!-- NAV BAR -->
-<nav class:list={['nav-bar w-100 vh-100 d-flex flex-nowrap flex-md-row flex-column align-items-center justify-content-center', { 'py-2': isLong }]}>
+<nav class:list={['nav-bar w-100 vh-100 d-flex flex-nowrap flex-md-row flex-column align-items-center justify-content-center', { 'py-2': isLong, scrolled: !fullscreen }]} data-compact={fullscreen ? undefined : ''}>
 
     <!-- NAV LOGO -->
     <div class:list={['nav-logo w-100', { 'd-flex flex-row': secondaryLogo }]}>

@@ -28,9 +28,11 @@ interface Props {
     footerLegalNote?: string;
     /** Keep the page out of search results and skip the canonical URL (used by the 404 page) */
     noindex?: boolean;
+    /** Full-screen intro nav at the top of the page; only the homepage uses it */
+    fullscreenNav?: boolean;
 }
 
-const { meta, navLinks, navSecondaryLogo, footerLegalNote, noindex = false } = Astro.props;
+const { meta, navLinks, navSecondaryLogo, footerLegalNote, noindex = false, fullscreenNav = false } = Astro.props;
 const canonical = new URL(Astro.url.pathname, Astro.site).href;
 // TODO: og-image.jpg doesn't exist yet, so shared links (LinkedIn, Facebook, etc.) show no
 // preview image. Add a 1200×630 still (e.g. a showreel frame) at
@@ -72,7 +74,7 @@ const ogImage = new URL('/assets/images/og-image.jpg', Astro.site).href;
 </head>
 <body class="parallax-wrapper">
 
-    <Nav links={navLinks} secondaryLogo={navSecondaryLogo} />
+    <Nav links={navLinks} secondaryLogo={navSecondaryLogo} fullscreen={fullscreenNav} />
 
     <div class="parallax-bg"></div>
 

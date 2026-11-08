@@ -11,6 +11,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const bg         = document.querySelector('.parallax-bg');
     const navBar     = document.querySelector('.nav-bar');
     const heroShrink = document.querySelectorAll('.hero-shrink');
+    // Pages other than the homepage render the nav compact and keep it that way
+    const alwaysCompact = navBar?.hasAttribute('data-compact') ?? false;
 
     // --- Internal navigation detection ---
     let isInternal = false;
@@ -53,7 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Nav bar state
         if (navBar) {
-            navBar.classList.toggle('scrolled', scrollY > 20 || isInternal);
+            navBar.classList.toggle('scrolled', alwaysCompact || scrollY > 20 || isInternal);
 
             if (scrollY > 100) {
                 navBar.classList.toggle('nav-hidden', scrollY > lastScrollTop);
