@@ -126,8 +126,9 @@ h1,h2,h3,h4,h5,h6{
     font-weight: 600 !important;
 }
 a{color: var(--color-accent);}
+/* Dark text on the orange: 5.35:1 contrast (light text was 2.87:1, below WCAG AA's 4.5:1) */
 a .btn-cta{
-    color: var(--color-text);
+    color: var(--color-text-inverted);
 }
 .border-box{
     box-sizing: border-box !important;
@@ -145,6 +146,7 @@ a .btn-cta{
 }
 .btn-cta{
     cursor: pointer;
+    color: var(--color-text-inverted);
     background-color: var(--color-accent);
     transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
 }
@@ -160,7 +162,8 @@ a .btn-cta{
     background-color: var(--color-accent-active);
     transition: color 0s ease-in-out,transform 0s ease-in-out, background-color 0s ease-in-out, box-shadow 0s ease-in-out;
     box-shadow: var(--box-shadow-active);
-    color: var(--color-card-soft);
+    /* Light text on the darker pressed orange: 4.57:1 */
+    color: var(--color-text);
 }
 .parallax-wrapper {
   position: relative;
