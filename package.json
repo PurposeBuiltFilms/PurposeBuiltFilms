@@ -5,7 +5,9 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
-    "preview": "astro preview"
+    "preview": "astro preview",
+    "preview:cf": "npm run build && wrangler dev",
+    "deploy:preview": "npm run build && wrangler deploy --name pbf-preview"
   },
   "repository": {
     "type": "git",
@@ -31,6 +33,7 @@
     "node": ">=22.23.4"
   },
   "devDependencies": {
-    "@fullhuman/postcss-purgecss": "^9.1.0"
+    "@fullhuman/postcss-purgecss": "^9.1.0",
+    "wrangler": "4.158.0"
   }
 }

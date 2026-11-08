@@ -27,3 +27,9 @@ error_log
 dist/
 .astro/
 .legacy-snapshots/
+
+# wrangler files
+.wrangler
+.dev.vars*
+!.dev.vars.example
+!.env.example

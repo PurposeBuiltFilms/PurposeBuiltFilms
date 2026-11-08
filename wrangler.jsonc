@@ -1,0 +1,13 @@
+// Cloudflare (Workers static assets) config. The site is fully static: Cloudflare serves
+// the built dist/ folder and applies public/_headers and public/_redirects.
+//   npm run preview:cf      local preview with headers + redirects applied
+//   npm run deploy:preview  deploy to the pbf-preview Worker (testing URL)
+// The production site uses the name below.
+{
+    "$schema": "node_modules/wrangler/config-schema.json",
+    "name": "purposebuiltfilms",
+    "compatibility_date": "2026-11-04",
+    "assets": {
+        "directory": "dist"
+    }
+}
