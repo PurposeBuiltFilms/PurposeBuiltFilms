@@ -32,8 +32,11 @@ const isLong = links.length > 5;
 <nav class:list={['nav-bar w-100 vh-100 d-flex flex-nowrap flex-md-row flex-column align-items-center justify-content-center', { 'py-2': isLong, scrolled: !fullscreen }]} data-compact={fullscreen ? undefined : ''}>
 
     <!-- NAV LOGO -->
-    <div class:list={['nav-logo w-100', { 'd-flex flex-row': secondaryLogo }]}>
-        <img class:list={[secondaryLogo ? 'w-50' : 'w-100']} src="/assets/images/purposebuiltfilms-logo.svg" width="933" height="503" alt="Purpose Built Films">
+    <div class:list={['nav-logo mx-3 w-100 ', { 'd-flex flex-row': secondaryLogo }]}>
+        {/* Logo links to the landing page; the img alt gives the link its accessible name */}
+        <a href="/" class:list={['d-block', secondaryLogo ? 'w-50' : 'w-100']}>
+            <img class="w-100" src="/assets/images/purposebuiltfilms-logo.svg" width="933" height="503" alt="Purpose Built Films home">
+        </a>
         {secondaryLogo && <img class="w-25" src={secondaryLogo.src} width={secondaryLogo.width} height={secondaryLogo.height} alt={secondaryLogo.alt}>}
     </div>
 

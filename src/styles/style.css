@@ -241,6 +241,11 @@ a .btn-cta{
 }
 /* Logos carry width/height attributes (to reserve space); let CSS width drive the size */
 .nav-logo img{height: auto;}
+.nav-logo a:focus-visible{
+    outline: 2px solid var(--color-accent-hover);
+    outline-offset: 4px;
+    border-radius: 0.25rem;
+}
 .nav-links{
     flex-direction: column;
     list-style:none;
