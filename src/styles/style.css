@@ -270,9 +270,6 @@ a .btn-cta{
     display: block;
     color: inherit;
 }
-.nav-bar.scrolled .nav-links{
-    flex-direction: row;
-}
 
 
 
