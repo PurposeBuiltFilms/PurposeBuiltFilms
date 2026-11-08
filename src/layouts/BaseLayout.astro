@@ -26,9 +26,11 @@ interface Props {
     navLinks?: NavLink[];
     navSecondaryLogo?: { src: string; alt: string; width: number; height: number };
     footerLegalNote?: string;
+    /** Keep the page out of search results and skip the canonical URL (used by the 404 page) */
+    noindex?: boolean;
 }
 
-const { meta, navLinks, navSecondaryLogo, footerLegalNote } = Astro.props;
+const { meta, navLinks, navSecondaryLogo, footerLegalNote, noindex = false } = Astro.props;
 const canonical = new URL(Astro.url.pathname, Astro.site).href;
 // TODO: og-image.jpg doesn't exist yet, so shared links (LinkedIn, Facebook, etc.) show no
 // preview image. Add a 1200×630 still (e.g. a showreel frame) at
@@ -42,7 +44,7 @@ const ogImage = new URL('/assets/images/og-image.jpg', Astro.site).href;
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{meta.title}</title>
     <meta name="description" content={meta.description}>
-    <link rel="canonical" href={canonical}>
+    {noindex ? <meta name="robots" content="noindex"> : <link rel="canonical" href={canonical}>}
 
     <!-- Open Graph -->
     <meta property="og:type" content="website">
