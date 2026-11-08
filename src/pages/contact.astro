@@ -1,5 +1,20 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import FaqItem from '../components/FaqItem.astro';
+import JsonLd from '../components/JsonLd.astro';
+import { faqs } from '../data/faqs';
+
+const faqSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs
+        .filter((faq) => faq.schemaAnswer)
+        .map((faq) => ({
+            '@type': 'Question',
+            name: faq.question,
+            acceptedAnswer: { '@type': 'Answer', text: faq.schemaAnswer },
+        })),
+};
 
 const meta = {
     "title": "Contact & FAQ — Purpose Built Films | Rewilding Film Production, Bristol South West",
@@ -11,66 +26,7 @@ const meta = {
 };
 ---
 <BaseLayout meta={meta}>
-    <Fragment slot="head">
-
-    <!-- JSON-LD: FAQPage -->
-    <script is:inline type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "FAQPage",
-        "mainEntity": [
-            {
-                "@type": "Question",
-                "name": "How do we get started?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Just drop us a message at info@purposebuiltfilms.com or fill out our contact form. We'll set up a call to learn about your goals and map out your project from there."
-                }
-            },
-            {
-                "@type": "Question",
-                "name": "Can you really film a documentary in one day?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Yes. We have over 25 years of experience working in high-end broadcast TV and on-demand documentaries. We work efficiently while leaving room for authentic moments."
-                }
-            },
-            {
-                "@type": "Question",
-                "name": "How much does a film cost?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Pricing depends on your needs, scale, and the complexity of the shoot. Generally, a film can start at around £1,500 + VAT. Contact us for a quick quote."
-                }
-            },
-            {
-                "@type": "Question",
-                "name": "How long does the video production process take?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Depending on the project, most videos are turned around in 2-6 weeks. Micro-content is usually even quicker."
-                }
-            },
-            {
-                "@type": "Question",
-                "name": "What makes Purpose Built Films different from other video companies?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "We focus on real stories and authentic emotion — using real people, not actors, and honest moments over scripts. Our team has backgrounds in high-end broadcast documentary production for BBC, Netflix, and National Geographic."
-                }
-            },
-            {
-                "@type": "Question",
-                "name": "Do you work with small businesses or only big brands?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Both. We love working with passionate startups as much as established brands. If you have a story to tell, we want to help share it."
-                }
-            }
-        ]
-    }
-    </script>
-    </Fragment>
+    <JsonLd slot="head" data={faqSchema} />
 
     
     <!-- MAIN CONTENT STARTS -->
@@ -146,107 +102,7 @@ const meta = {
         <section id="faq-section" class="tall-section text-start collapse-holder border-box mt-5 pb-5">
             <h2 class="text-center fs-1">Frequently Asked Questions</h2>
             <ul class="p-1 p-md-0">
-                <li class="service-info d-flex flex-column align-items-center my-3">
-                    <div class="d-flex justify-content-between align-items-center vw-md-75 w-100 text-md-start text-center">
-                        <h3 class="w-100 px-2 service-cta hidden">How do we get started?</h3>
-                    </div>
-                    <div class="card service-hidden w-100 vw-md-75 px-2 py-2 mx-md-5 mx-0 rounded-3 text-md-start text-center">
-                        <h3 class="w-100">How do we get started?</h3>
-                        <p>Just drop us a message at <a href="mailto:info@purposebuiltfilms">info@purposebuiltfilms.com</a> or fill out <a href="">our contact form</a>.</p>
-                        <p>We’ll set up a call to learn about your goals and map out your project from there!</p>
-                    </div>
-                </li>
-                <li class="service-info d-flex flex-column align-items-center my-3">
-                    <div class="d-flex justify-content-between align-items-center vw-md-75 w-100 text-md-start text-center">
-                        <h3 class="w-100 px-2 service-cta ">Can you really film a documentary in one day?</h3>
-                    </div>
-                    <div class="card service-hidden hidden w-100 vw-md-75 px-2 py-2 mx-md-5 mx-0 rounded-3 text-md-start text-center">
-                        <h3 class="w-100">Can you really film a documentary in one day?</h3>
-                        <p>Yes.</p> 
-                        <p>We have over 25 years of experience working in high-end broadcast TV and on-demand documentaries. We know exactly what we need to get a story across effectively.</p>
-                        <p>We leave room for authentic moments - they are the crux of your film - but we work efficiently.</p>
-                        <p>We know our kit, we know our craft, and we'll deliver the end results to you fast - at a fraction of the cost of high-end TV work.</p>
-                    </div>
-                </li>
-                <li class="service-info d-flex flex-column align-items-center my-3">
-                    <div class="d-flex justify-content-between align-items-center vw-md-75 w-100 text-md-start text-center">
-                        <h3 class="w-100 px-2 service-cta">What services do you offer?</h3>
-                    </div>
-                    <div class="card service-hidden hidden w-100 vw-md-75 px-2 py-2 mx-md-5 mx-0 rounded-3 text-md-start text-center">
-                        <h3 class="w-100">What services do you offer?</h3>
-                        <p>We specialize in video production. <br />everything from micro-content and brand stories, to event coverage and social media campaigns.</p></div>
-                </li>
-                <li class="service-info d-flex flex-column align-items-center my-3">
-                    <div class="d-flex justify-content-between align-items-center vw-md-75 w-100 text-md-start text-center">
-                        <h3 class="w-100 px-2 service-cta">I want a unique cinematic 'look' - can you do that?</h3>
-                    </div>
-                    <div class="card service-hidden hidden w-100 vw-md-75 px-2 py-2 mx-md-5 mx-0 rounded-3 text-md-start text-center">
-                        <h3 class="w-100">I want a unique cinematic 'look' - can you do that?</h3>
-                        <p>We can, absolutely. </p>
-                        <p>We work with you in our initial discussion to create a custom look that really embodies your brand. From filming to grade, we know what we're doing  and how to get you what you want.</p>
-                        <p>Just talk to us about our vintage lens collection (but be prepared to have your ear talked off) - we can make your film stand out from the crowd with a bespoke, cinematic style.</p>
-                    </div>
-                </li>
-                <li class="service-info d-flex flex-column align-items-center my-3">
-                    <div class="d-flex justify-content-between align-items-center vw-md-75 w-100 text-md-start text-center">
-                        <h3 class="w-100 px-2 service-cta">What makes Purpose Built Films different from other video companies?</h3>
-                    </div>
-                    <div class="card service-hidden hidden w-100 vw-md-75 px-2 py-2 mx-md-5 mx-0 rounded-3 text-md-start text-center">
-                        <h3 class="w-100">What makes Purpose Built Films different from other video companies?</h3>
-                        <p>We focus on real stories and authentic emotion - using real people, not actors, and honest moments over scripts. Your audience will feel the difference.</p>
-                    </div>
-                </li>
-                <li class="service-info d-flex flex-column align-items-center my-3">
-                    <div class="d-flex justify-content-between align-items-center vw-md-75 w-100 text-md-start text-center">
-                        <h3 class="w-100 px-2 service-cta">How long does the video production process take?</h3>
-                    </div>
-                    <div class="card service-hidden hidden w-100 vw-md-75 px-2 py-2 mx-md-5 mx-0 rounded-3 text-md-start text-center">
-                        <h3 class="w-100">How long does the video production process take?</h3>
-                        <p>Depending on the project, most videos are turned around in 2-6 weeks. Micro-content is usually even quicker! We’ll always keep you in the loop.</p>
-                    </div>
-                </li>
-                <li class="service-info d-flex flex-column align-items-center my-3">
-                    <div class="d-flex justify-content-between align-items-center vw-md-75 w-100 text-md-start text-center">
-                        <h3 class="w-100 px-2 service-cta">How much does a film cost?</h3>
-                    </div>
-                    <div class="card service-hidden hidden w-100 vw-md-75 px-2 py-2 mx-md-5 mx-0 rounded-3 text-md-start text-center">
-                        <h3 class="w-100">How much does a film cost?</h3>
-                        <p>Pricing depends on your needs, scale, and the complexity of the shoot—but we’re always upfront and clear. Contact us for a quick quote.</p>
-                        <p>We work with budgets and companies of all sizes - from single person startups to major organisations - and if you have a story, we'll find a way to get it told. We are particularly interested in helping companies focussed on <i class="accent-hover">positive change,</i> so don't be shy about getting in touch.</p>
-                        <p>Generally, a film can start at around £1,500 + VAT. This gets you a full day filming with a TV professional who has worked with the best in the business, as well as a fast-turnaround edit and revisions.</p>
-                        <p>Because of our TV background and connections, we are infinitely scalable and no film or idea is off limits.</p>
-                    </div>
-                </li>
-                <li class="service-info d-flex flex-column align-items-center my-3">
-                    <div class="d-flex justify-content-between align-items-center vw-md-75 w-100 text-md-start text-center">
-                        <h3 class="w-100 px-2 service-cta">Do you work with small businesses or only big brands?</h3>
-                    </div>
-                    <div class="card service-hidden hidden w-100 vw-md-75 px-2 py-2 mx-md-5 mx-0 rounded-3 text-md-start text-center">
-                        <h3 class="w-100">Do you work with small businesses or only big brands?</h3>
-                        <p class="fs-5">Both!</p> 
-                        <p>We love working with passionate startups as much as established brands. If you have a story to tell, we want to help share it.
-                            </p>
-                    </div>
-                </li>
-                <li class="service-info d-flex flex-column align-items-center my-3">
-                    <div class="d-flex justify-content-between align-items-center vw-md-75 w-100 text-md-start text-center">
-                        <h3 class="w-100 px-2 service-cta">Can you help with ideas if we’re not sure what we want?</h3>
-                    </div>
-                    <div class="card service-hidden hidden w-100 vw-md-75 px-2 py-2 mx-md-5 mx-0 rounded-3 text-md-start text-center">
-                        <h3 class="w-100">Can you help with ideas if we’re not sure what we want?</h3>
-                        <p>Our founder, Adam, has worked in development with some of the biggest names in TV</p>
-                        <p>His super power is turning ideas (however vague) into emotional, visually stunning stories. Book a free ideas call to discuss.</p>
-                    </div>
-                </li>
-                <li class="service-info d-flex flex-column align-items-center my-3">
-                    <div class="d-flex justify-content-between align-items-center vw-md-75 w-100 text-md-start text-center">
-                        <h3 class="w-100 px-2 service-cta">Can you handle everything, including editing and delivery?</h3>
-                    </div>
-                    <div class="card service-hidden hidden w-100 vw-md-75 px-2 py-2 mx-md-5 mx-0 rounded-3 text-md-start text-center">
-                        <h3 class="w-100">Can you handle everything, including editing and delivery?</h3>
-                        <p>Yes, we offer full-service production: planning, shooting, editing, and final delivery in the format you need.</p>
-                    </div>
-                </li>
+                {faqs.map((faq, i) => <FaqItem faq={faq} open={i === 0} />)}
             </ul>
         </section>
     </div>
