@@ -171,7 +171,7 @@ a .btn-cta{
 .main-content {
   position: relative;
   z-index: 50;
-  min-height: 200vh; /* to see the scroll effect */
+   /* min-height: 200vh; to see the scroll effect */
   padding: 2rem;
   color: white;
 }
