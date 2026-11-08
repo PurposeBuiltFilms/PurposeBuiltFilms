@@ -1,0 +1,11 @@
+# Cloudflare Pages redirects (replaces the old Apache .htaccess)
+# Old PHP / HTML URLs -> clean URLs, kept for SEO and existing links
+/index.php      /           301
+/about.php      /about/     301
+/services.php   /services/  301
+/contact.php    /contact/   301
+/biotapes.html  /biotapes/  301
+
+# Old Wix orphan URL
+/about-1        /about/     301
+/about-1/       /about/     301

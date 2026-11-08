@@ -6,30 +6,38 @@ export interface NavLink {
 
 interface Props {
     links?: NavLink[];
+    /** Extra logo shown beside the PBF logo (used on the Biotapes page) */
+    secondaryLogo?: { src: string; alt: string };
 }
 
 const defaultLinks: NavLink[] = [
     { href: '/', label: 'Home' },
     { href: '/services/', label: 'Pricing' },
     { href: '/about/', label: 'About Us' },
-    { href: '/biotapes.html', label: 'Biotapes' },
+    { href: '/biotapes/', label: 'Biotapes' },
     { href: '/contact/', label: 'Contact' },
 ];
 
-const { links = defaultLinks } = Astro.props;
+const { links = defaultLinks, secondaryLogo } = Astro.props;
+// Long link lists (Biotapes) wrap and use tighter vertical spacing
+const isLong = links.length > 5;
 ---
 <!-- NAV BAR -->
-<nav class="nav-bar w-100 vh-100 d-flex flex-nowrap flex-md-row flex-column align-items-center justify-content-center">
+<nav class:list={['nav-bar w-100 vh-100 d-flex flex-nowrap flex-md-row flex-column align-items-center justify-content-center', { 'py-2': isLong }]}>
 
     <!-- NAV LOGO -->
-    <div class="nav-logo w-100">
-        <img class="w-100" src="/assets/images/purposebuiltfilms-logo.svg" alt="Purpose Built Films">
+    <div class:list={['nav-logo w-100', { 'd-flex flex-row': secondaryLogo }]}>
+        <img class:list={[secondaryLogo ? 'w-50' : 'w-100']} src="/assets/images/purposebuiltfilms-logo.svg" alt="Purpose Built Films">
+        {secondaryLogo && <img class="w-25" src={secondaryLogo.src} alt={secondaryLogo.alt}>}
     </div>
 
     <!-- NAV LINKS -->
-    <ul class="nav-links flex-md-column flex-row m-md-0 my-2 ps-md-1 ps-0 mw-25 w-100 d-flex align-items-center justify-content-md-start justify-content-around">
+    <ul class:list={[
+        'nav-links flex-md-column flex-row m-md-0 ps-md-1 ps-0 mw-25 w-100 d-flex align-items-center justify-content-md-start justify-content-around',
+        isLong ? 'py-2 flex-wrap' : 'my-2',
+    ]}>
         {links.map(({ href, label }) => (
-            <li class="nav rounded-2 px-2 border-box m-md-3">
+            <li class:list={['nav rounded-2 px-2 border-box', isLong ? 'mx-md-3' : 'm-md-3']}>
                 <a href={href}>{label}</a>
             </li>
         ))}

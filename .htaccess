@@ -1,8 +1,0 @@
-RewriteEngine On
-
-# Redirect old Wix orphan URL
-RewriteRule ^about-1/?$ /about.php [R=301,L]
-
-# Biotapes subdomain redirect
-RewriteCond %{HTTP_HOST} ^(www\.)?biotapes\.org$ [NC]
-RewriteRule ^$ https://www.purposebuiltfilms.com/biotapes.html [L,R=301]

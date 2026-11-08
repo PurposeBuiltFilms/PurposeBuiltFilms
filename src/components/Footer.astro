@@ -1,4 +1,10 @@
 ---
+interface Props {
+    /** Extra legal line above the copyright, e.g. a trademark notice */
+    legalNote?: string;
+}
+
+const { legalNote } = Astro.props;
 const year = new Date().getFullYear();
 ---
 <!-- FOOTER SECTION -->
@@ -13,6 +19,7 @@ const year = new Date().getFullYear();
         </ul>
     </section>
     <section class="flex-grow-1 flex-shrink-1 text-center">
+        {legalNote && <p class="small text-center mb-3">{legalNote}</p>}
         <p class="small text-center mb-3">
             &copy; {year} Purpose Built Films.<br />
             All rights reserved.

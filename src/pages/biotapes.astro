@@ -1,0 +1,188 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import BiotapesSection from '../components/BiotapesSection.astro';
+import BiotapesStepCard from '../components/BiotapesStepCard.astro';
+import { steps } from '../data/biotapes';
+
+const meta = {
+    title: 'Biotapes — Hash-Verified Ecological Baselines | Purpose Built Films',
+    description: 'Biotapes delivers hash-verified ecological baseline recordings for BNG, TNFD, and biodiversity net gain compliance — a trademarked product by Purpose Built Films, Bristol.',
+    ogDescription: 'Tamper-proof ecological baseline recordings for BNG, TNFD, and biodiversity net gain compliance. A trademarked product by Purpose Built Films.',
+    twitterTitle: 'Biotapes — Hash-Verified Ecological Baselines',
+    twitterDescription: 'Tamper-proof ecological baseline recordings for BNG, TNFD, and biodiversity net gain compliance.',
+};
+
+const navLinks = [
+    { href: '#What-is-Biotapes', label: 'What is Biotapes' },
+    { href: '#Why-it-Matters', label: 'Why it Matters' },
+    { href: '#How-it-Works', label: 'How it Works' },
+    { href: '#Who-its-For', label: "Who it's For" },
+    { href: '#Use-Cases', label: 'Use Cases' },
+    { href: '#Pilot', label: 'Pilot Opportunities' },
+    { href: '#Partner', label: 'Partner Integrations' },
+    { href: '#About-PBF', label: 'About PBF' },
+    { href: '#Contact', label: 'Contact' },
+];
+
+const logo = { src: '/assets/images/biotapes-logo.svg', alt: 'Biotapes Ecological Baseline Verification' };
+
+// Download buttons only render once a file URL is set (they previously linked nowhere)
+const briefingUrl = '';
+const protocolSummaryUrl = '';
+const contactUrl = '/contact/';
+---
+<BaseLayout
+    meta={meta}
+    navLinks={navLinks}
+    navSecondaryLogo={logo}
+    footerLegalNote="Biotapes™ is a trademark of Purpose Built Films Ltd."
+>
+
+    <section class="vh-25 bg-primary z-90 position-relative"></section>
+    <div id="main-content" class="w-100 main-content container-fluid p-0 pb-5">
+
+        <!-- HERO SECTION -->
+        <section id="biotape-hero" class="text-center vh-100 d-flex justify-content-center align-items-center bg-primary pt-0 mt-0">
+            <div class="text-center">
+                <img class="w-25 my-3" src={logo.src} alt={logo.alt}>
+                <h1>Biotapes™</h1>
+                <h2>The Visual Evidence Standard for Nature Markets</h2>
+                <h4 class="w-75 mx-a">Human-visible, hash-verified, timestamped baselines that bring trust to ecological reporting, BNG compliance and nature-finance projects.</h4>
+
+                {briefingUrl && <a href={briefingUrl} target="_blank" rel="noopener noreferrer"><span class="d-inline-block btn-cta rounded-4 p-2 px-4 mt-5">Download the Biotapes Briefing</span></a>}
+                <a href={contactUrl}><span class="d-inline-block btn-cta rounded-4 p-2 px-4 mt-5">Become an Early Partner</span></a>
+            </div>
+        </section>
+
+        <BiotapesSection
+            id="What-is-Biotapes"
+            heading="WHAT IS BIOTAPES"
+            image={{ src: '/assets/images/biotapes-what-is-biotapes.webp', alt: 'Biotapes verified ecological baseline recording for BNG and nature-finance compliance, South West England' }}
+        >
+            <p>Biotapes™ is a verified visual baseline protocol used to establish ground-truth evidence for ecological and nature-finance projects.</p>
+            <p class="w-md-50 text-start mx-a mb-1">It combines:</p>
+            <ul class="list-style-item-inside w-md-50 text-start mx-a">
+                <li>a standardised filming method</li>
+                <li>automatic metadata embedding</li>
+                <li>cryptographic hashing at ingest</li>
+                <li>unique Biotapes Verification IDs</li>
+                <li>lightweight API integration for platforms</li>
+            </ul>
+            <p>Biotapes provides a neutral, independent way to prove what was on the ground, when it was filmed, and that the evidence hasn’t been manipulated.</p>
+            <p>It is a product of Purpose Built Films, bringing documentary-grade visual integrity into emerging nature markets.</p>
+        </BiotapesSection>
+
+        <BiotapesSection
+            id="Why-it-Matters"
+            heading="WHY BIOTAPES MATTERS"
+            image={{ src: '/assets/images/biotapes-why-biotapes-matters.webp', alt: 'Why Biotapes matters — transparent, tamper-proof ecological evidence for rewilding and habitat restoration projects' }}
+        >
+            <p>Nature markets depend on trust - but baselines are often invisible, inconsistent, or unverifiable.</p>
+            <p class="w-md-50 text-start mx-a mb-1">Biotapes solves this by providing:</p>
+            <ul class="list-style-item-inside w-md-50 text-start mx-a">
+                <li><span class="accent">Transparency</span> - clear, human-visible evidence</li>
+                <li><span class="accent">Consistency</span> - a repeatable filming protocol</li>
+                <li><span class="accent">Security</span> - hash-verified files that cannot be altered</li>
+                <li><span class="accent">Accessibility</span> - easy integration into any platform</li>
+                <li><span class="accent">Neutrality</span> - independent verification trusted by investors, insurers and regulators</li>
+            </ul>
+            <p>Biotapes is designed to support BNG projects, natural capital markets, TNFD-aligned reporting, habitat banks, restoration finance, and NGOs.</p>
+        </BiotapesSection>
+
+        <!-- HOW BIOTAPES WORKS SECTION -->
+        <section id="How-it-Works" class="text-center mt-5 vw-75 mx-a py-5 px-4 border-box">
+            <h2 class="fs-1">HOW BIOTAPES WORKS</h2>
+            {steps.map((step) => <BiotapesStepCard step={step} />)}
+        </section>
+
+        <BiotapesSection
+            id="Who-its-For"
+            heading="WHO BIOTAPES IS FOR"
+            image={{ src: '/assets/images/biotapes-who-is-for.webp', alt: 'Who Biotapes is for — ecological consultants, habitat banks, local authorities and rewilding projects in the UK' }}
+        >
+            <p class="w-75 text-start mx-a mb-1">Biotapes is built for:</p>
+            <ul class="list-style-item-inside w-75 text-start mx-a">
+                <li>Ecological consultants</li>
+                <li>Habitat banks</li>
+                <li>Local authorities</li>
+                <li>Restoration platforms</li>
+                <li>Developers managing BNG compliance</li>
+                <li>Investors + TNFD reporting teams</li>
+                <li>Insurers underwriting biodiversity or natural assets</li>
+                <li>Landowners</li>
+                <li>NGO and charity-led restoration projects</li>
+            </ul>
+        </BiotapesSection>
+
+        <BiotapesSection
+            id="Use-Cases"
+            heading="USE CASES"
+            image={{ src: '/assets/images/biotapes-use-cases.webp', alt: 'Biotapes use cases — BNG baseline evidence, nature-based solutions, habitat bank verification, impact investment' }}
+        >
+            <ul class="list-style-item-inside w-75 text-start mx-a">
+                <li>BNG Baseline Evidence</li>
+                <li>Nature-based solutions reporting</li>
+                <li>Habitat bank verification</li>
+                <li>Impact investment due diligence</li>
+                <li>Insurance risk assessment</li>
+                <li>Long-term ecological monitoring</li>
+                <li>NGO and community-led restoration transparency</li>
+            </ul>
+        </BiotapesSection>
+
+        <BiotapesSection
+            id="Pilot"
+            heading="PILOT OPPORTUNITIES"
+            image={{ src: '/assets/images/biotapes-pilot-opportunities.webp', alt: 'Biotapes pilot opportunities — early partner integrations for BNG and natural capital reporting' }}
+        >
+            <p>We are currently onboarding early partners for pilot integrations.</p>
+            <p class="w-75 text-start mx-a mb-1">Pilots typically include:</p>
+            <ul class="list-style-item-inside w-75 text-start mx-a">
+                <li>Verified baselines</li>
+                <li>Evidence package creation</li>
+                <li>Integration with partner platforms</li>
+                <li>Optional documentary filming by Purpose Built Films</li>
+                <li>Support for BNG or natural capital reporting</li>
+            </ul>
+            <a href={contactUrl}><span class="d-inline-block btn-cta rounded-4 p-2 px-4 mt-5">Apply for a Pilot</span></a>
+        </BiotapesSection>
+
+        <BiotapesSection
+            id="Partner"
+            heading="PARTNER INTEGRATIONS"
+            image={{ src: '/assets/images/biotapes-partner-integrations.webp', alt: 'Biotapes API partner integrations — MRV tools, BNG calculators, TNFD reporting platforms, land management apps' }}
+        >
+            <p class="w-75 text-start mx-a mb-1">The Biotapes API allows rapid integration into:</p>
+            <ul class="list-style-item-inside w-75 text-start mx-a">
+                <li>MRV tools</li>
+                <li>BNG calculators</li>
+                <li>TNFD reporting platforms</li>
+                <li>Land management apps</li>
+                <li>Natural capital platforms</li>
+                <li>NGO data systems</li>
+                <li>Insurance verification workflows</li>
+            </ul>
+            <p>(Current partners include early-stage nature-tech teams. Public list coming soon.)</p>
+        </BiotapesSection>
+
+        <BiotapesSection
+            id="About-PBF"
+            heading="ABOUT PURPOSE BUILT FILMS"
+            padded={false}
+            image={{ src: '/assets/images/purposebuiltfilms-logo.svg', alt: 'Purpose Built Films — rewilding and nature documentary filmmakers, Bristol, South West England' }}
+        >
+            <p class="w-75 mx-a">
+                Purpose Built Films is a studio that blends world-class storytelling with ecological integrity.<br />
+                For over a decade, we’ve filmed natural history, expedition documentaries, and evidence-driven environmental stories.<br />
+                PBF created Biotapes to fill a crucial gap in nature markets: trusted visual proof.
+            </p>
+        </BiotapesSection>
+
+        <!-- CALL TO ACTION -->
+        <section id="Contact" class="text-center vw-md-75 mx-a border-box">
+            <a href={contactUrl}><span class="d-inline-block btn-cta rounded-4 p-2 px-4 mt-4 fs-2">Get in Touch</span></a><br />
+            {protocolSummaryUrl && <a href={protocolSummaryUrl} target="_blank" rel="noopener noreferrer"><span class="d-inline-block btn-cta rounded-4 p-2 px-4 mt-3">Download Biotapes Protocol Summary</span></a>}
+        </section>
+
+    </div>
+</BaseLayout>

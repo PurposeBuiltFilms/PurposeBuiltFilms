@@ -15,9 +15,11 @@ export interface Meta {
 interface Props {
     meta: Meta;
     navLinks?: NavLink[];
+    navSecondaryLogo?: { src: string; alt: string };
+    footerLegalNote?: string;
 }
 
-const { meta, navLinks } = Astro.props;
+const { meta, navLinks, navSecondaryLogo, footerLegalNote } = Astro.props;
 const canonical = new URL(Astro.url.pathname, Astro.site).href;
 const ogImage = new URL('/assets/images/og-image.jpg', Astro.site).href;
 ---
@@ -60,7 +62,7 @@ const ogImage = new URL('/assets/images/og-image.jpg', Astro.site).href;
 </head>
 <body class="parallax-wrapper">
 
-    <Nav links={navLinks} />
+    <Nav links={navLinks} secondaryLogo={navSecondaryLogo} />
 
     <div class="parallax-bg"></div>
 
@@ -71,7 +73,7 @@ const ogImage = new URL('/assets/images/og-image.jpg', Astro.site).href;
     <!-- Shared site JS -->
     <script is:inline src="/assets/js/main.js"></script>
 
-    <Footer />
+    <Footer legalNote={footerLegalNote} />
 
     <!-- Page-specific content after the footer, e.g. modals and scripts -->
     <slot name="after-footer" />
