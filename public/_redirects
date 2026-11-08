@@ -2,7 +2,9 @@
 # Old PHP / HTML URLs -> clean URLs, kept for SEO and existing links
 /index.php      /           301
 /about.php      /about/     301
-/services.php   /services/  301
+# Services temporarily hidden: send old links to the homepage instead of a 404.
+# When src/pages/_services.astro is restored, change the target back to /services/
+/services.php   /           301
 /contact.php    /contact/   301
 # Biotapes temporarily hidden; re-enable with src/pages/_biotapes.astro
 # /biotapes.html  /biotapes/  301

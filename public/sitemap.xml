@@ -12,12 +12,14 @@
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
+    <!-- Services temporarily hidden; re-enable with src/pages/_services.astro
     <url>
         <loc>https://purposebuiltfilms.com/services/</loc>
         <lastmod>2026-06-01</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
+    -->
     <url>
         <loc>https://purposebuiltfilms.com/contact/</loc>
         <lastmod>2026-06-01</lastmod>
