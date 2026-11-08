@@ -1,0 +1,18 @@
+---
+import type { TeamMember } from '../data/team';
+
+interface Props {
+    member: TeamMember;
+}
+
+const { member } = Astro.props;
+---
+<div class="col-12 col-sm-6 col-md-3 my-2">
+    <div class="card p-2 h-100 text-center">
+        <img class="service-image img-fluid rounded-pill mb-2" src={member.image} alt={member.alt} loading="lazy" />
+        <h5 class="accent-hover">{member.name}</h5>
+        <p>{member.role}</p>
+        <p class="fs-9">{member.bio}</p>
+        {member.extraHtml && <Fragment set:html={member.extraHtml} />}
+    </div>
+</div>

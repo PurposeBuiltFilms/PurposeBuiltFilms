@@ -1,5 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import ServiceCard from '../components/ServiceCard.astro';
+import { services } from '../data/services';
 import ClientLogos from '../components/ClientLogos.astro';
 import CtaButton from '../components/CtaButton.astro';
 
@@ -133,68 +135,7 @@ const meta = {
 
             <!-- SERVICE OPTIONS -->
             <div class="container-fluid border-box">
-                <div class="d-flex flex-column flex-md-row align-items-center card service-info mx-auto vw-md-75 vw-100 my-4">
-                    <div class="col-12 col-md-4 pt-2">
-                        <h3>Short Films</h3>
-                        <img class="service-image img-fluid w-75 rounded-3 m-2" src="/assets/images/service-short-film.webp" alt="Rewilding and nature short film production for conservation charities in Bristol and the South West" />
-                    </div>
-                    <div class="col-12 col-md-8 mt-2 text-start px-1 px-md-0 text-center text-md-start">
-                        At Purpose Built Films, our short films are designed to do one thing beautifully: tell a powerful story in a small, intentional space. Whether you are restoring a wetland, reintroducing species, or building a circular product, a short film lets people see the impact, not just read about it. We capture real people, real places, and real change, with an emphasis on working lightly on the land and showcasing sustainable practice on screen.
-                        <span class="service-cta cta-text"><br />more info...</span>
-                        <div class="service-hidden hidden mt-3">
-                            <p>We plan each film around your purpose. That might be a 60–120 second hero piece for your website, a two-minute story for a funding report, or social-first cuts to help your work reach new audiences. Our shoots are lean and considered, using crews and equipment appropriate to rewilding and conservation environments, so we do not damage the very places we are celebrating.</p>
-                            <p>Because we work in this sector, we know the visuals matter. We prioritise natural light, texture, and sound so viewers feel like they are standing on site with you. Where it helps the story, we weave in interviews, voiceover, or motion graphics to explain the why behind the work. The result is a short, cinematic film that feels alive, rooted in place, and completely aligned with your organisation’s values.</p>
-                            <p>If you are looking for something that can be shared with stakeholders, funders, volunteers, or the wider public, a short film is the most agile format we offer. Pair it with our Pollinators add-ons for social cutdowns, captions, and extra versions, and you have a whole mini campaign from one purposeful shoot.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="d-flex flex-column flex-md-row align-items-center card service-info mx-auto vw-md-75 vw-100 my-4">
-                    <div class="col-12 col-md-4 pt-2">
-                        <h3>CEO Branding</h3>
-                        <img class="service-image img-fluid w-75 rounded-3 m-2" src="/assets/images/service-ceo-branding.webp" alt="CEO and founder branding films for rewilding organisations and conservation charities, Bristol" />
-                    </div>
-                    <div class="col-12 col-md-8 mt-2 text-start px-1 px-md-0 text-center text-md-start">
-                        Purpose-led organisations are powered by people, and often the clearest story sits with the person at the top. Our CEO Branding films give your leadership a confident, human voice on camera. We create short, high-quality pieces that introduce who you are, what you believe, and why this work matters now. It is not corporate gloss; it is clear, grounded storytelling that helps partners, funders, and audiences trust you.
-                        <span class="service-cta cta-text"><br />more info...</span>
-                        <div class="service-hidden hidden mt-3">
-                            <p>Because Purpose Built Films works in rewilding and sustainability, we understand you may not want to sit in front of a white backdrop talking about growth targets. We can film you in context – on site, in nature, or in the places your decisions make a difference – and show that your leadership is aligned with your environmental and social values. We keep crews small, work lightly, and make sure the locations we use reflect the integrity of your organisation.</p>
-                            <p>A CEO Branding film can do a lot of work for you: sit on your website’s About page, support a funding round, introduce you at events, or become the core asset for LinkedIn and other social channels. We can build it around a single strong interview, then layer in b-roll of your projects, team, or sites so it feels cinematic rather than staged.</p>
-                            <p>Pair this service with our Pollinators add-ons for social cutdowns, captions, and alternate edits (for internal vs external audiences), and you have a flexible set of assets that consistently tell your story, wherever people discover you.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="d-flex flex-column flex-md-row align-items-center card service-info mx-auto vw-md-75 vw-100 my-4">
-                    <div class="col-12 col-md-4 pt-2">
-                        <h3>Monthly Content</h3>
-                        <img class="service-image img-fluid w-75 rounded-3 m-2" src="/assets/images/service-monthly-content.webp" alt="Monthly nature and rewilding video content packages for charities and land managers, South West England" />
-                    </div>
-                    <div class="col-12 col-md-8 mt-2 text-start px-1 px-md-0 text-center text-md-start">
-                        Some stories do not happen in one day on set. Restoration projects, community programmes, new product cycles – they all evolve over time. Our Monthly Content Packages are designed to keep telling that story as it unfolds. Instead of commissioning a single big film once a year, you get a steady stream of short, on-brand content you can share with stakeholders, funders, and your online audience every month.
-                        <span class="service-cta cta-text"><br />more info...</span>
-                        <div class="service-hidden hidden mt-3">
-                            <p>We plan the content with you around your actual calendar – planting, habitat surveys, launches, volunteer days, reports – so we are capturing real activity, not inventing it. Crews stay lean and environmentally sensitive, and we reuse locations and b-roll wherever possible so the footprint stays low and the costs stay predictable. The result is a bank of films, social edits, and micro-stories that all look like they belong to the same organisation.</p>
-                            <p>Each month you receive ready-to-use assets, formatted for web and social, with options for captions and accessibility. Pair the package with our Pollinators add-ons (extra cutdowns, stills from footage, alternative VO) to get even more from each shoot. Over time, you build a living visual archive of your impact – not just a one-off film.</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- <li class="vw-100 vw-md-75 card service-info d-flex flex-column align-items-center my-4 py-3 px-md-2">
-                    <div class="d-flex justify-content-between align-items-center w-100 flex-md-row flex-column">
-                        <h3 class="w-md-25 flex-grow-0">Social Cutdowns</h3>
-                        <div class="flex-grow-1 mx-3 text-md-start text-center">All our films can be teasered with sharable bite-sized videos that extend your reach
-                        <span class="service-cta cta-text"><br />more info...</span>
-                        </div>
-                    </div>
-                    <div class="service-hidden hidden vw-md-50 w-100 px-md-5 py-2 mx-5 mt-3 mt-md-0">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iusto nisi assumenda omnis. Pariatur animi quos eveniet eum nobis ad hic nisi inventore iusto laborum, ducimus consequatur minus, illum, omnis aperiam. </div>
-                </li>
-                <li class="vw-100 vw-md-75 card service-info d-flex flex-column align-items-center my-4 py-3 px-md-2">
-                    <div class="d-flex justify-content-between align-items-center w-100 flex-md-row flex-column">
-                        <h3 class="w-md-25 flex-grow-0">Video Strategy</h3>
-                        <div class="flex-grow-1 mx-3 text-md-start text-center">We work with you to deliver strategic, story-first planning from message to delivery​​
-                        <span class="service-cta cta-text"><br />more info...</span>
-                    </div>
-                    </div>
-                    <div class="service-hidden hidden vw-md-50 w-100 px-md-5 py-2 mx-5 mt-3 mt-md-0">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iusto nisi assumenda omnis. Pariatur animi quos eveniet eum nobis ad hic nisi inventore iusto laborum, ducimus consequatur minus, illum, omnis aperiam. </div>
-                </li> -->
+                {services.map((service) => <ServiceCard service={service} />)}
             </div>
 
             <!-- CLIENT CTA -->

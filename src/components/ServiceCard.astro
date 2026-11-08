@@ -1,0 +1,22 @@
+---
+import type { Service } from '../data/services';
+
+interface Props {
+    service: Service;
+}
+
+const { service } = Astro.props;
+---
+<div class="d-flex flex-column flex-md-row align-items-center card service-info mx-auto vw-md-75 vw-100 my-4">
+    <div class="col-12 col-md-4 pt-2">
+        <h3>{service.title}</h3>
+        <img class="service-image img-fluid w-75 rounded-3 m-2" src={service.image} alt={service.alt} loading="lazy" />
+    </div>
+    <div class="col-12 col-md-8 mt-2 text-start px-1 px-md-0 text-center text-md-start">
+        {service.intro}
+        <span class="service-cta cta-text"><br />more info...</span>
+        <div class="service-hidden hidden mt-3">
+            {service.details.map((paragraph) => <p>{paragraph}</p>)}
+        </div>
+    </div>
+</div>

@@ -1,5 +1,9 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import VideoCard from '../components/VideoCard.astro';
+import { videos } from '../data/videos';
+import TeamCard from '../components/TeamCard.astro';
+import { team } from '../data/team';
 import ClientLogos from '../components/ClientLogos.astro';
 
 const meta = {
@@ -61,39 +65,7 @@ const meta = {
             <h3 class="w-100">Meet the Team </h3>
             <div class="container-md container-fluid m-0 p-0">
                 <div class="row">
-                    <div class="col-12 col-sm-6 col-md-3 my-2">
-                        <div class="card p-2 h-100 text-center">
-                            <img class="service-image img-fluid rounded-pill mb-2" src="/assets/images/team-adam-laister-art-director-camera-operator-bristol.webp" alt="Adam Laister — rewilding and wildlife documentary filmmaker, founder of Purpose Built Films, Bristol" />
-                            <h5 class="accent-hover">Adam Laister</h5>
-                            <p>Founder and Director of Photography</p>
-                            <p class="fs-9">Adam has a background in adventure and wildlife filmmaking, capturing footage for major broadcasters, working on flagship productions such as Blue Planet 3. His expertise spans across various camera systems, ranging from gimbals to underwater cinematography, aerial, long-lens, time-lapse, and the raw authenticity of handheld filming. He has a strong sense for composition and is always seeking new ways to tell a story with advancements of modern technology. Having filmed all over the globe, he thrives working in remote and challenging environments, but is just as happy filming in some woods or a wetland in the UK!</p>
-                        </div>
-                    </div>
-                    <div class="col-12 col-sm-6 col-md-3 my-2">
-                        <div class="card p-2 h-100 text-center">
-                            <img class="service-image img-fluid rounded-pill mb-2" src="/assets/images/team-nick-jone-art-director-camera-operator-bristol.webp" alt="Nick Jones — Art Director and Camera Operator, nature and conservation film production, Bristol" />
-                            <h5 class="accent-hover">Nick Jones</h5>
-                            <p>Art Director and Camera Operator</p>
-                            <p class="fs-9">Nick is a passionate and commercially driven creative with unwavering commitment to precision, consistency, and execution. With a Specialism in TV pitch deck design over the past 7 years and over 20 years of combined professional experience in design, film, animation, identity, print, digital and social for global brands. Nick thrives working on multiple projects, collaborating with colleagues and adjacent teams to present a full range of solutions. Personal ethos to push boundaries, crafting ideas into strategic and purposeful content. Award winning filmmaker, commercial diver and drone pilot, he has worked on development and productions for BBC, Sky, Netflix, Prime, Nat Geo and more.</p>
-                        </div>
-                    </div>
-                    <div class="col-12 col-sm-6 col-md-3 my-2">
-                        <div class="card p-2 h-100 text-center">
-                            <img class="service-image img-fluid rounded-pill mb-2" src="/assets/images/team-joey-haines-development-producer-bristol.webp" alt="Joey Haines — Development Producer and wildlife documentary filmmaker, Purpose Built Films, Bristol" />
-                            <h5 class="accent-hover">Joey Haines</h5>
-                            <p>Development Producer and Self shooting PD</p>
-                            <p class="fs-9">Joey is an award winning filmmaker with strong editorial instincts and technical expertise. He is highly skilled in developing stories that meet client and channel needs, Joey has delivered content for major broadcasters and brands across linear and digital. He's known for clear communication and strong relationships with contributors and talent, Joey brings creativity, insight, and reliability to every production.</p>
-                        </div>
-                    </div>
-                    <div class="col-12 col-sm-6 col-md-3 my-2">
-                        <div class="card p-2 h-100 text-center">
-                            <img class="service-image img-fluid rounded-pill mb-2" src="/assets/images/team-georgie-maw-warner-rewilding-partner-bristol.webp" alt="Georgie Maw Warner — Rewilding Partner and conservation filmmaker, Somerset and South West England" />
-                            <h5 class="accent-hover">Georgie Maw Warner</h5>
-                            <p>Rewilding Partner & On-Screen Collaborator</p>
-                            <p class="fs-9">Georgie has a background in conservation biology and is currently rewilding her farm, just outside Bath, Somerset. She is passionate about nature restoration and this has connected her to many others on a similar journey. Her ambition is to visit other sites across the UK and further afield, to tell their story, learn more about the great work they are doing and the schemes they are using which can aid landowners to increase the biodiversity of their land, while maintaining a functioning farm.</p>
-                            <p>See more about her work at<br /> <a href="https://wonderfulwildwest.org/">Wonderful Wild West</a></p>
-                        </div>
-                    </div>
+                    {team.map((member) => <TeamCard member={member} />)}
                 </div>
             </div>
         </section>
@@ -108,39 +80,7 @@ const meta = {
 
             <!-- YOUTUBE VIDEOS -->
             <div class="row vw-100 vw-md-75 mx-a service-info align-items-stretch">
-
-                <div class="col-12 col-md-6 col-lg-3 p-2">
-                    <div class="card rounded-3 p-2 h-100">
-                        <div class="ratio ratio-16x9 mb-3">
-                            <iframe frameborder="0" allowfullscreen="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" title="Seawood" width="100%" height="100%" src="https://www.youtube.com/embed/89uXvNpw5_0?autoplay=0&amp;mute=0&amp;controls=1&amp;loop=0&amp;origin=https%3A%2F%2Fwww.purposebuiltfilms.com&amp;playsinline=1&amp;enablejsapi=1&amp;widgetid=11&amp;forigin=https%3A%2F%2Fwww.purposebuiltfilms.com%2Fportfolio&amp;aoriginsup=0&amp;vf=5" id="widget12"></iframe>
-                        </div>
-                        <p>Filmed over two days with Kirsty Elwood, an artist making beautiful, joyful pieces of art from driftwood collected near her home in Cornwall. We talked to Kirsty about art, the ocean - and slowing down.</p>
-                    </div>
-                </div>
-                <div class="col-12 col-md-6 col-lg-3 p-2">
-                    <div class="card rounded-3 p-2 h-100">
-                        <div class="ratio ratio-16x9 mb-3">
-                            <iframe frameborder="0" allowfullscreen="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" title="Farm Animal Referral Service at Langford Vets" width="100%" height="100%" src="https://www.youtube.com/embed/5oU1-DNBJmg?autoplay=0&amp;mute=0&amp;controls=1&amp;loop=0&amp;origin=https%3A%2F%2Fwww.purposebuiltfilms.com&amp;playsinline=1&amp;enablejsapi=1&amp;widgetid=13&amp;forigin=https%3A%2F%2Fwww.purposebuiltfilms.com%2Fportfolio&amp;aoriginsup=0&amp;vf=1" id="widget14"></iframe>
-                        </div>
-                        <p>We've been working with Langford Veterinary Services (Small animal Hospital) and the University of Bristol on a monthly basis to showcase the incredible work they do in caring for animals and teaching the next generation of veterinarians. Part of a series of films.</p>
-                    </div>
-                </div>
-                <div class="col-12 col-md-6 col-lg-3 p-2">
-                    <div class="card rounded-3 p-2 h-100">
-                        <div class="ratio ratio-16x9 mb-3">
-                            <iframe frameborder="0" allowfullscreen="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" title="Cotswold Fayre B-Corp Conference 2025" width="100%" height="100%" src="https://www.youtube.com/embed/5bwTMO0vo-w?autoplay=0&amp;mute=0&amp;controls=1&amp;loop=0&amp;origin=https%3A%2F%2Fwww.purposebuiltfilms.com&amp;playsinline=1&amp;enablejsapi=1&amp;widgetid=15&amp;forigin=https%3A%2F%2Fwww.purposebuiltfilms.com%2Fportfolio&amp;aoriginsup=0&amp;vf=1" id="widget16"></iframe>
-                        </div>
-                        <p>Cotswold Fayre are a B-Corp distributing food and drink made with passion and care for the planet. We stopped by their suppliers conference earlier this year to find out more.</p>
-                    </div>
-                </div>
-                <div class="col-12 col-md-6 col-lg-3 p-2">
-                    <div class="card rounded-3 p-2 h-100">
-                        <div class="ratio ratio-16x9 mb-3">
-                            <iframe frameborder="0" allowfullscreen="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" title="Coca-Cola: Increase Reusable Packaging!" width="100%" height="100%" src="https://www.youtube.com/embed/cSVn86caQOk?autoplay=0&amp;mute=0&amp;controls=1&amp;loop=0&amp;origin=https%3A%2F%2Fwww.purposebuiltfilms.com&amp;playsinline=1&amp;enablejsapi=1&amp;widgetid=17&amp;forigin=https%3A%2F%2Fwww.purposebuiltfilms.com%2Fportfolio&amp;aoriginsup=0&amp;vf=1" id="widget18"></iframe>
-                        </div>
-                        <p>We accompanied NGO Ocean charity OCEANA for their groundbreaking campaign in London back in 2024</p>
-                    </div>
-                </div>
+                {videos.map((video) => <VideoCard video={video} />)}
             </div>
 
         </section>
