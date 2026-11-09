@@ -34,9 +34,7 @@ interface Props {
 
 const { meta, navLinks, navSecondaryLogo, footerLegalNote, noindex = false, fullscreenNav = false } = Astro.props;
 const canonical = new URL(Astro.url.pathname, Astro.site).href;
-// TODO: og-image.jpg doesn't exist yet, so shared links (LinkedIn, Facebook, etc.) show no
-// preview image. Add a 1200×630 still (e.g. a showreel frame) at
-// public/assets/images/og-image.jpg; every page picks it up via og:image / twitter:image.
+// Social share preview (1200×630): brand logo on black, used by every page
 const ogImage = new URL('/assets/images/og-image.jpg', Astro.site).href;
 ---
 <!DOCTYPE html>
@@ -54,6 +52,9 @@ const ogImage = new URL('/assets/images/og-image.jpg', Astro.site).href;
     <meta property="og:title" content={meta.ogTitle ?? meta.title}>
     <meta property="og:description" content={meta.ogDescription ?? meta.description}>
     <meta property="og:image" content={ogImage}>
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Purpose Built Films logo">
     <meta property="og:site_name" content="Purpose Built Films">
 
     <!-- Twitter Card -->
@@ -61,6 +62,7 @@ const ogImage = new URL('/assets/images/og-image.jpg', Astro.site).href;
     <meta name="twitter:title" content={meta.twitterTitle ?? meta.ogTitle ?? meta.title}>
     <meta name="twitter:description" content={meta.twitterDescription ?? meta.ogDescription ?? meta.description}>
     <meta name="twitter:image" content={ogImage}>
+    <meta name="twitter:image:alt" content="Purpose Built Films logo">
 
     <link rel="preload" href={funnelDisplayLatin} as="font" type="font/woff2" crossorigin>
     <link rel="preload" href={robotoFlexLatin} as="font" type="font/woff2" crossorigin>
