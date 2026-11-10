@@ -15,10 +15,10 @@ import CtaButton from './CtaButton.astro';
 <section class={sectionClass}>
     <!-- CLIENTS HEADER -->
 
-    <h2 class={`text-center pt-5 pb-3 ${headingClass}`}>{heading}</h2>
+    <h2 class={`text-center pt-5 pb-3 ${headingClass ?? ''}`}>{heading}</h2>
 
     <!-- CLIENTS LOGOS -->
-    <div class="d-flex flex-wrap flex-md-nowrap justify-content-center align-items-center gap-4 mb-4">
+    <div class="d-flex flex-wrap flex-md-nowrap justify-content-center align-items-center gap-4 mb-4 px-2">
         <!-- Bristol Inclusive Climbing   -->
         <svg
             role="img"
@@ -248,7 +248,7 @@ import CtaButton from './CtaButton.astro';
     </div>
 
     <!-- CLIENTS CTA -->
-    <CtaButton href={cta.href} wrapperClass={cta.wrapperClass}>
+    <CtaButton href={cta.href} wrapperClass={`text-center py-3 px-2 ${cta.wrapperClass ?? ''}`}>
         {cta.label}
     </CtaButton>
 </section>
