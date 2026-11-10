@@ -9,12 +9,20 @@ interface Props {
 const { service } = Astro.props;
 const panelId = `service-${slugify(service.title)}`;
 ---
+
 <div class="d-flex flex-column flex-md-row align-items-center card service-info mx-auto vw-md-75 vw-100 my-4">
-    <div class="col-12 col-md-4 pt-2">
+    <div class="col-12 col-md-4 py-2">
         <h3>{service.title}</h3>
-        <img class="service-image img-fluid w-75 rounded-3 m-2" src={service.image} width={service.width} height={service.height} alt={service.alt} loading="lazy" />
+        <img
+            class="service-image img-fluid w-75 rounded-3 m-2"
+            src={service.image}
+            width={service.width}
+            height={service.height}
+            alt={service.alt}
+            loading="lazy"
+        />
     </div>
-    <div class="col-12 col-md-8 mt-2 text-start px-1 px-md-0 text-center text-md-start">
+    <div class="col-12 col-md-8 mt-2 text-start px-4 text-center text-md-start">
         {service.intro}
         <span data-collapse-host>
             <br />
@@ -23,7 +31,9 @@ const panelId = `service-${slugify(service.title)}`;
             </button>
         </span>
         <div id={panelId} class="service-hidden hidden mt-3" tabindex="-1" inert>
-            {service.details.map((paragraph) => <p>{paragraph}</p>)}
+            {service.details.map((paragraph) => (
+                <p>{paragraph}</p>
+            ))}
         </div>
     </div>
 </div>

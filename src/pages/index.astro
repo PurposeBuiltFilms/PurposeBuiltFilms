@@ -7,84 +7,86 @@ import ClientLogos from '../components/ClientLogos.astro';
 import CtaButton from '../components/CtaButton.astro';
 
 const meta = {
-    "title": "Purpose Built Films — Rewilding & Nature Documentary Filmmakers | Bristol, South West",
-    "description": "Bristol-based rewilding and nature documentary filmmakers. Purpose Built Films creates cinematic films for conservation charities, rewilding projects, and purpose-led brands across the South West and beyond.",
-    "ogDescription": "Bristol-based rewilding and nature documentary filmmakers. Cinematic storytelling for conservation charities, rewilding projects, and purpose-led brands across the South West and UK.",
-    "twitterTitle": "Purpose Built Films — Rewilding & Nature Documentary Filmmakers | Bristol",
-    "twitterDescription": "Bristol-based rewilding and nature documentary filmmakers. Cinematic storytelling for conservation, rewilding, and purpose-driven brands across the South West."
+    title: 'Purpose Built Films — Rewilding & Nature Documentary Filmmakers | Bristol, South West',
+    description:
+        'Bristol-based rewilding and nature documentary filmmakers. Purpose Built Films creates cinematic films for conservation charities, rewilding projects, and purpose-led brands across the South West and beyond.',
+    ogDescription:
+        'Bristol-based rewilding and nature documentary filmmakers. Cinematic storytelling for conservation charities, rewilding projects, and purpose-led brands across the South West and UK.',
+    twitterTitle: 'Purpose Built Films — Rewilding & Nature Documentary Filmmakers | Bristol',
+    twitterDescription:
+        'Bristol-based rewilding and nature documentary filmmakers. Cinematic storytelling for conservation, rewilding, and purpose-driven brands across the South West.',
 };
 ---
+
 <BaseLayout meta={meta} fullscreenNav>
     <Fragment slot="head">
-    <!-- Hero poster is the LCP image: fetch it early so it paints before the 5 MB video arrives -->
-    <link rel="preload" as="image" href="/assets/images/showreel-poster.webp" fetchpriority="high">
+        <!-- Hero poster is the LCP image: fetch it early so it paints before the 5 MB video arrives -->
+        <link rel="preload" as="image" href="/assets/images/showreel-poster.webp" fetchpriority="high" />
 
-    <!-- JSON-LD: Organization + LocalBusiness + Person -->
-    <script is:inline type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@graph": [
+        <!-- JSON-LD: Organization + LocalBusiness + Person -->
+        <script is:inline type="application/ld+json">
             {
-                "@type": ["Organization", "LocalBusiness"],
-                "@id": "https://purposebuiltfilms.com/#organization",
-                "name": "Purpose Built Films",
-                "url": "https://purposebuiltfilms.com",
-                "logo": "https://purposebuiltfilms.com/assets/images/logo.png",
-                "description": "Conservation and wildlife documentary filmmakers creating cinematic stories for charities, brands, and purpose-driven organisations.",
-                "address": {
-                    "@type": "PostalAddress",
-                    "addressLocality": "Bristol",
-                    "addressCountry": "GB"
-                },
-                "telephone": "+447958646101",
-                "email": "info@purposebuiltfilms.com",
-                "sameAs": [
-                    "https://www.facebook.com/purposebuiltfilms",
-                    "https://www.linkedin.com/company/purposebuiltfilms",
-                    "https://www.instagram.com/purposebuiltfilms/",
-                    "https://www.youtube.com/@purposebuiltfilms"
-                ],
-                "founder": {
-                    "@type": "Person",
-                    "@id": "https://purposebuiltfilms.com/about#adam-laister",
-                    "name": "Adam Laister",
-                    "jobTitle": "Founder and Director of Photography",
-                    "description": "Wildlife and conservation filmmaker with 10 years of experience in high-end broadcast documentaries, including productions for BBC, Netflix, and National Geographic.",
-                    "worksFor": {"@id": "https://purposebuiltfilms.com/#organization"},
-                    "sameAs": [
-                        "https://www.linkedin.com/in/adam-laister-48551331/",
-                        "https://www.instagram.com/purposebuiltfilms/"
-                    ]
-                }
-            },
-            {
-                "@type": "WebSite",
-                "@id": "https://purposebuiltfilms.com/#website",
-                "url": "https://purposebuiltfilms.com",
-                "name": "Purpose Built Films",
-                "publisher": {"@id": "https://purposebuiltfilms.com/#organization"}
-            },
-            {
-                "@type": "VideoObject",
-                "name": "Purpose Built Films Showreel — Rewilding and Nature Documentary Filmmakers, Bristol",
-                "description": "Showreel from Purpose Built Films, Bristol-based rewilding and nature documentary filmmakers. Cinematic storytelling for conservation charities, rewilding projects, and purpose-led brands across the South West.",
-                "contentUrl": "https://www.youtube.com/watch?v=NobAg6yFsBE",
-                "embedUrl": "https://www.youtube.com/embed/NobAg6yFsBE",
-                "uploadDate": "2025-01-01",
-                "publisher": {"@id": "https://purposebuiltfilms.com/#organization"}
+                "@context": "https://schema.org",
+                "@graph": [
+                    {
+                        "@type": ["Organization", "LocalBusiness"],
+                        "@id": "https://purposebuiltfilms.com/#organization",
+                        "name": "Purpose Built Films",
+                        "url": "https://purposebuiltfilms.com",
+                        "logo": "https://purposebuiltfilms.com/assets/images/logo.png",
+                        "description": "Conservation and wildlife documentary filmmakers creating cinematic stories for charities, brands, and purpose-driven organisations.",
+                        "address": {
+                            "@type": "PostalAddress",
+                            "addressLocality": "Bristol",
+                            "addressCountry": "GB"
+                        },
+                        "telephone": "+447958646101",
+                        "email": "info@purposebuiltfilms.com",
+                        "sameAs": [
+                            "https://www.facebook.com/purposebuiltfilms",
+                            "https://www.linkedin.com/company/purposebuiltfilms",
+                            "https://www.instagram.com/purposebuiltfilms/",
+                            "https://www.youtube.com/@purposebuiltfilms"
+                        ],
+                        "founder": {
+                            "@type": "Person",
+                            "@id": "https://purposebuiltfilms.com/about#adam-laister",
+                            "name": "Adam Laister",
+                            "jobTitle": "Founder and Director of Photography",
+                            "description": "Wildlife and conservation filmmaker with 10 years of experience in high-end broadcast documentaries, including productions for BBC, Netflix, and National Geographic.",
+                            "worksFor": { "@id": "https://purposebuiltfilms.com/#organization" },
+                            "sameAs": [
+                                "https://www.linkedin.com/in/adam-laister-48551331/",
+                                "https://www.instagram.com/purposebuiltfilms/"
+                            ]
+                        }
+                    },
+                    {
+                        "@type": "WebSite",
+                        "@id": "https://purposebuiltfilms.com/#website",
+                        "url": "https://purposebuiltfilms.com",
+                        "name": "Purpose Built Films",
+                        "publisher": { "@id": "https://purposebuiltfilms.com/#organization" }
+                    },
+                    {
+                        "@type": "VideoObject",
+                        "name": "Purpose Built Films Showreel — Rewilding and Nature Documentary Filmmakers, Bristol",
+                        "description": "Showreel from Purpose Built Films, Bristol-based rewilding and nature documentary filmmakers. Cinematic storytelling for conservation charities, rewilding projects, and purpose-led brands across the South West.",
+                        "contentUrl": "https://www.youtube.com/watch?v=NobAg6yFsBE",
+                        "embedUrl": "https://www.youtube.com/embed/NobAg6yFsBE",
+                        "uploadDate": "2025-01-01",
+                        "publisher": { "@id": "https://purposebuiltfilms.com/#organization" }
+                    }
+                ]
             }
-        ]
-    }
-    </script>
+        </script>
     </Fragment>
 
     <!-- MAIN CONTENT STARTS -->
     <!-- <section class="vh-10"></section> -->
     <div id="main-content" class="main-content container-fluid p-0">
-
         <!-- HERO SECTION -->
         <section class="w-100 rvh-100 mt-5 pt-5 position-relative bg-primary">
-
             <!-- HERO VIDEO -->
             <video
                 class="w-100 rvh-100 object-fit-cover"
@@ -99,26 +101,49 @@ const meta = {
 
             <!-- TEXT OVERLAY -->
             <div class="container-fluid position-absolute w-100 h-100 top-0 start-0">
-                <div class="row h-33">
-                </div>
+                <div class="row h-33"></div>
                 <div class="row h-33 d-flex align-items-center text-center">
                     <div class="col-12">
-                        <h1 class="visually-hidden">Rewilding and Nature Documentary Filmmakers — Purpose Built Films, Bristol, South West England</h1>
-                        <h2 class="w-100 fs-1"><span class="hero-shrink">Stories with </span><span class="accent">Purpose</span></h2>
-                        <h2 class="w-100 fs-1"><span class="accent">Built</span><span class="hero-shrink"> to Last</span></h2>
-                        <a href="https://calendly.com/purposebuiltfilms/30min" target="_blank"><div class="d-inline-block btn-cta rounded-2 p-2 px-4 mt-5">Book a Discovery Call</div></a>
+                        <h1 class="visually-hidden">
+                            Rewilding and Nature Documentary Filmmakers — Purpose Built Films, Bristol, South West
+                            England
+                        </h1>
+                        <h2 class="w-100 fs-1">
+                            <span class="hero-shrink">Stories with </span>
+                            <span class="accent">Purpose</span>
+                        </h2>
+                        <h2 class="w-100 fs-1">
+                            <span class="accent">Built</span>
+                            <span class="hero-shrink"> to Last</span>
+                        </h2>
+                        <a href="https://calendly.com/purposebuiltfilms/30min" target="_blank">
+                            <div class="d-inline-block btn-cta rounded-2 p-2 px-4 mt-5">Book a Discovery Call</div>
+                        </a>
                         <div class="mt-4">
-                            <button type="button" class="showreel-play-btn" aria-haspopup="dialog" aria-controls="showreelModal" aria-label="Watch our showreel">
+                            <button
+                                type="button"
+                                class="showreel-play-btn"
+                                aria-haspopup="dialog"
+                                aria-controls="showreelModal"
+                                aria-label="Watch our showreel"
+                            >
                                 <Icon name="fa6-solid:play" class="icon" />
                             </button>
-                            <div class="small mt-2 text-white" style="opacity:0.8;letter-spacing:0.1em;text-transform:uppercase;font-size:0.75rem;">Watch Showreel</div>
+                            <div
+                                class="small mt-2 text-white"
+                                style="opacity:0.8;letter-spacing:0.1em;text-transform:uppercase;font-size:0.75rem;"
+                            >
+                                Watch Showreel
+                            </div>
                         </div>
                     </div>
                 </div>
                 <div class="row h-33 d-flex align-items-end">
                     <div class="col-12 mb-5 text-center fs-4">
-                        We are Purpose Built. Video content strategy and film making for brands, organisations, companies, charities and changemakers.
-                        <br /><br />
+                        We are Purpose Built. Video content strategy and film making for brands, organisations,
+                        companies, charities and changemakers.
+                        <br />
+                        <br />
                         Working Worldwide - Based in Bristol, UK.
                     </div>
                 </div>
@@ -129,43 +154,48 @@ const meta = {
             heading="Who We Work With"
             sectionClass="my-5"
             headingClass="pt-3"
-            cta={{ href: '/about/', label: 'Find out how we work...' }}
+
+            cta={{ href: '/about/', label: 'Find out how we work...', wrapperClass: 'text-center m-3 py-3' }}
         />
 
         <!-- SERVICES SECTION -->
         <section id="services-section" class="text-center collapse-holder mt-5 pb-3">
             <h2 class="fs-1">Our Services</h2>
-            <p>At Purpose Built Films, we make story-driven content for brands, charities, and leaders whose message matters.</p>
+            <p>
+                At Purpose Built Films, we make story-driven content for brands, charities, and leaders whose message
+                matters.
+            </p>
 
             <!-- SERVICE OPTIONS -->
             <div class="container-fluid border-box">
-                {services.map((service) => <ServiceCard service={service} />)}
+                {services.map((service) => (
+                    <ServiceCard service={service} />
+                ))}
             </div>
 
             <!-- CLIENT CTA -->
-            <CtaButton href="/contact/">Build Something with Purpose...</CtaButton>
+            <CtaButton wrapperClass="py-5" href="/contact/">
+                Build Something with Purpose...
+            </CtaButton>
         </section>
-
     </div>
-    
 
     <Fragment slot="after-footer">
-    
-    <!-- SHOWREEL MODAL (native <dialog>: focus trap, Esc to close and backdrop come from the browser) -->
-    <dialog class="showreel-dialog" id="showreelModal" aria-label="Purpose Built Films Showreel">
-        <div class="showreel-dialog-header">
-            <button type="button" class="btn-close btn-close-white" data-close aria-label="Close"></button>
-        </div>
-        <div class="ratio ratio-16x9">
-            <iframe
-                id="showreelIframe"
-                data-src="https://www.youtube.com/embed/NobAg6yFsBE?autoplay=1&rel=0"
-                title="Purpose Built Films Showreel — Rewilding and Nature Documentary Filmmakers, Bristol"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowfullscreen
-            ></iframe>
-        </div>
-    </dialog>
-    <script is:inline src="/assets/js/showreel.js" defer></script>
+        <!-- SHOWREEL MODAL (native <dialog>: focus trap, Esc to close and backdrop come from the browser) -->
+        <dialog class="showreel-dialog" id="showreelModal" aria-label="Purpose Built Films Showreel">
+            <div class="showreel-dialog-header">
+                <button type="button" class="btn-close btn-close-white" data-close aria-label="Close"></button>
+            </div>
+            <div class="ratio ratio-16x9">
+                <iframe
+                    id="showreelIframe"
+                    data-src="https://www.youtube.com/embed/NobAg6yFsBE?autoplay=1&rel=0"
+                    title="Purpose Built Films Showreel — Rewilding and Nature Documentary Filmmakers, Bristol"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen
+                ></iframe>
+            </div>
+        </dialog>
+        <script is:inline src="/assets/js/showreel.js" defer></script>
     </Fragment>
 </BaseLayout>
