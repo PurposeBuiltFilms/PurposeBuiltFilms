@@ -9,53 +9,120 @@ interface Props {
 const { legalNote } = Astro.props;
 const year = new Date().getFullYear();
 ---
+
 <!-- FOOTER SECTION -->
-<footer class="d-flex pt-3 flex-column flex-md-row">
+<footer class="d-flex pt-5 flex-column flex-md-row">
     <section class="flex-grow-1 flex-shrink-0 text-center align-items-start">
         <ul class="list-unstyled">
-            <li><a href="/">Home</a></li>
+            <li>
+                <a href="/">Home</a>
+            </li>
             {/* Pricing is temporarily hidden (see src/pages/_services.astro)
             <li><a href="/services/">Pricing</a></li> */}
-            <li><a href="/about/">About Us</a></li>
-            <li><a href="/contact/#faq-section">FAQ</a></li>
-            <li><a href="/contact/">Contact</a></li>
+            <li>
+                <a href="/about/">About Us</a>
+            </li>
+            <li>
+                <a href="/contact/#faq-section">FAQ</a>
+            </li>
+            <li>
+                <a href="/contact/">Contact</a>
+            </li>
         </ul>
     </section>
     <section class="flex-grow-1 flex-shrink-1 text-center">
         {legalNote && <p class="small text-center mb-3">{legalNote}</p>}
         <p class="small text-center mb-3">
-            &copy; {year} Purpose Built Films.<br />
+            &copy; {year} Purpose Built Films.
+            <br />
             All rights reserved.
         </p>
         <p>
-            Web design by <a href="https://freshpour.uk" target="_blank" rel="noopener noreferrer">freshpour.uk</a>
+            Web design by{' '}
+            <a href="https://freshpour.uk" target="_blank" rel="noopener noreferrer">
+                freshpour.uk
+            </a>
         </p>
     </section>
     <section class="flex-grow-1 flex-shrink-1 text-center text-md-start">
         <h4>Quick Contact</h4>
         <p class="accent-hover">
-            <Icon name="fa6-solid:inbox" class="icon me-2" /><a class="color-inherit" href="mailto:info@purposebuiltfilms.com">info@purposebuiltfilms.com</a>
+            <Icon name="fa6-solid:inbox" class="icon me-2" />
+            <a class="color-inherit" href="mailto:info@purposebuiltfilms.com">
+                info@purposebuiltfilms.com
+            </a>
         </p>
         <p class="accent-hover">
-            <Icon name="fa6-solid:phone" class="icon me-2" /><a class="color-inherit" href="tel:+447958646101">+447958646101</a>
+            <Icon name="fa6-solid:phone" class="icon me-2" />
+            <a class="color-inherit" href="tel:+447958646101">
+                +447958646101
+            </a>
         </p>
         <p class="accent-hover">
-            <Icon name="fa6-solid:calendar-days" class="icon me-2" /><a class="color-inherit" href="https://calendly.com/purposebuiltfilms/30min" target="_blank" rel="noopener noreferrer">Book a Discovery Call</a>
+            <Icon name="fa6-solid:calendar-days" class="icon me-2" />
+            <a
+                class="color-inherit"
+                href="https://calendly.com/purposebuiltfilms/30min"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                Book a Discovery Call
+            </a>
         </p>
         <p>
-            <Icon name="fa6-brands:whatsapp" class="icon me-2" /><a class="accent-hover" href="https://wa.me/447958646101?text=I%20want%20to%20know%20more%20about%20Purpose%20Built%20Films" target="_blank" rel="noopener noreferrer">Whatsapp</a>
+            <Icon name="fa6-brands:whatsapp" class="icon me-2" />
+            <a
+                class="accent-hover"
+                href="https://wa.me/447958646101?text=I%20want%20to%20know%20more%20about%20Purpose%20Built%20Films"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                Whatsapp
+            </a>
         </p>
         <p>
-            <Icon name="fa6-brands:facebook" class="icon me-2" /><a class="accent-hover" href="https://www.facebook.com/purposebuiltfilms" target="_blank" rel="noopener noreferrer">Facebook</a>
+            <Icon name="fa6-brands:facebook" class="icon me-2" />
+            <a
+                class="accent-hover"
+                href="https://www.facebook.com/purposebuiltfilms"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                Facebook
+            </a>
         </p>
         <p>
-            <Icon name="fa6-brands:linkedin" class="icon me-2" /><a class="accent-hover" href="https://www.linkedin.com/company/purposebuiltfilms" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            <Icon name="fa6-brands:linkedin" class="icon me-2" />
+            <a
+                class="accent-hover"
+                href="https://www.linkedin.com/company/purposebuiltfilms"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                LinkedIn
+            </a>
         </p>
         <p>
-            <Icon name="fa6-brands:instagram" class="icon me-2" /><a class="accent-hover" href="https://www.instagram.com/purposebuiltfilms/" target="_blank" rel="noopener noreferrer">Instagram</a>
+            <Icon name="fa6-brands:instagram" class="icon me-2" />
+            <a
+                class="accent-hover"
+                href="https://www.instagram.com/purposebuiltfilms/"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                Instagram
+            </a>
         </p>
         <p>
-            <Icon name="fa6-brands:youtube" class="icon me-2" /><a class="accent-hover" href="https://www.youtube.com/@purposebuiltfilms" target="_blank" rel="noopener noreferrer">YouTube</a>
+            <Icon name="fa6-brands:youtube" class="icon me-2" />
+            <a
+                class="accent-hover"
+                href="https://www.youtube.com/@purposebuiltfilms"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                YouTube
+            </a>
         </p>
     </section>
 </footer>
