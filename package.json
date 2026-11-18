@@ -9,7 +9,8 @@
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "preview:cf": "npm run build && wrangler dev",
-    "deploy:preview": "npm run build && wrangler deploy --name pbf-preview"
+    "deploy:preview": "npm run build && wrangler deploy --name purpose-built-films-preview",
+    "deploy:prod": "npm run build && wrangler deploy --name purpose-built-films-prod"
   },
   "repository": {
     "type": "git",

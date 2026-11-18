@@ -1,11 +1,13 @@
 // Cloudflare (Workers static assets) config. The site is fully static: Cloudflare serves
 // the built dist/ folder and applies public/_headers and public/_redirects.
 //   npm run preview:cf      local preview with headers + redirects applied
-//   npm run deploy:preview  deploy to the pbf-preview Worker (testing URL)
-// The production site uses the name below.
+//   npm run deploy:preview  deploy to the purpose-built-films-preview Worker (testing URL)
+//   npm run deploy:prod     deploy to the purpose-built-films-prod Worker (live site)
+// The default name below is the preview Worker on purpose, so a bare `wrangler deploy`
+// can never overwrite production. Prod is only reachable via `--name` in deploy:prod.
 {
     "$schema": "node_modules/wrangler/config-schema.json",
-    "name": "purposebuiltfilms",
+    "name": "purpose-built-films-preview",
     "compatibility_date": "2026-11-04",
     "assets": {
         "directory": "dist",
